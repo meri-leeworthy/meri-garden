@@ -3,7 +3,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      title: "Beastly"
+      title: ["Beastly", "sans-serif"],
+      sans: ["WorkSans", "sans-serif"],
+      mono: ["Space-Mono", "monospace"]
     },
     extend: {}
   },

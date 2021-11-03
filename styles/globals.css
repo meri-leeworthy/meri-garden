@@ -10,4 +10,122 @@
     font-style: normal;
     font-display: swap;
   }
+
+  @font-face {
+    font-family: "WorkSans";
+    src: url("../public/fonts/worksans/WorkSans-Black.woff") format("woff");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "WorkSans";
+    src: url("../public/fonts/worksans/WorkSans-BlackItalic.woff")
+      format("woff");
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "WorkSans";
+    src: url("../public/fonts/worksans/WorkSans-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "WorkSans";
+    src: url("../public/fonts/worksans/WorkSans-Italic.woff") format("woff");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "WorkSans";
+    src: url("../public/fonts/worksans/WorkSans-LightItalic.woff")
+      format("woff");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "WorkSans";
+    src: url("../public/fonts/worksans/WorkSans-Light.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "WorkSans";
+    src: url("../public/fonts/worksans/WorkSans-BoldItalic.woff") format("woff");
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "WorkSans";
+    src: url("../public/fonts/worksans/WorkSans-ExtraLight.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "WorkSans";
+    src: url("../public/fonts/worksans/WorkSans-Medium.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "WorkSans";
+    src: url("../public/fonts/worksans/WorkSans-ExtraLightItalic.woff")
+      format("woff");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Space-Mono";
+    src: url("../public/fonts/space-mono/SpaceMono-Regular.woff2")
+      format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Space-Mono";
+    src: url("../public/fonts/space-mono/SpaceMono-Bold.woff2") format("woff2");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Space-Mono";
+    src: url("../public/fonts/space-mono/SpaceMono-Italic.woff2")
+      format("woff2");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Space-Mono";
+    src: url("../public/fonts/space-mono/SpaceMono-BoldItalic.woff2")
+      format("woff2");
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+  }
 }
