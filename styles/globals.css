@@ -129,3 +129,17 @@
     font-display: swap;
   }
 }
+
+@layer components {
+  article.document {
+    @apply space-y-4 max-w-2xl;
+  }
+
+  article.document a {
+    @apply text-blue-600 underline;
+  }
+
+  /* article.document a.a-unstyled {
+    @apply text-black no-underline dark:text-gray-300;
+  } */
+}
