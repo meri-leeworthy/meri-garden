@@ -3,13 +3,29 @@ import Head from "next/head";
 import Link from "next/link";
 import { gql } from "@apollo/client";
 import client from "lib/apollo-client";
+import { Feed } from "feed";
+import { writeFileSync } from "fs";
+
+interface Post {
+  title: string;
+  slug: string;
+  publishDate: string | null;
+  author: {
+    name: string;
+  };
+  plaintext: string;
+}
+
+type Props = {
+  posts: Post[];
+};
 
 const GET_POSTS = gql`
   query {
     posts {
       title
       slug
-      snippet
+      plaintext
       publishDate
       author {
         name
@@ -18,6 +34,49 @@ const GET_POSTS = gql`
   }
 `;
 
+const generateRSSFeed = (posts: Post[]) => {
+  const baseUrl = "https://meri.garden";
+  const author = {
+    name: "Meri Leeworthy",
+    email: "doesntwork@meri.garden",
+    link: "https://meri.garden"
+  };
+
+  // Construct a new Feed object
+  const feed = new Feed({
+    title: "Writing by Meri Leeworthy",
+    description: "Programming, art, politics, parenting/domestic work.",
+    id: baseUrl,
+    copyright: "Property is theft 2021, Meri Leeworthy",
+    link: baseUrl,
+    language: "en",
+    feedLinks: {
+      rss2: `${baseUrl}/rss.xml`
+    },
+    author
+  });
+
+  // Add each article to the feed
+  posts.forEach((post) => {
+    const { plaintext, slug, publishDate, title } = post;
+    const url = `${baseUrl}/${slug}`;
+    const date = publishDate || "2021-11-02T00:38:00.000Z";
+
+    feed.addItem({
+      title,
+      id: url,
+      link: url,
+      content: plaintext,
+      author: [author],
+      date: new Date(date)
+    });
+  });
+
+  // Write the RSS output to a public file, making it
+  // accessible at meri.garden/rss.xml
+  writeFileSync("public/rss.xml", feed.rss2());
+};
+
 export const getStaticProps: GetStaticProps = async () => {
   try {
     const { data, error } = await client.query({
@@ -25,6 +84,9 @@ export const getStaticProps: GetStaticProps = async () => {
     });
     // error -> 404 (rather than just breaking)
     if (!data || error) return { notFound: true };
+
+    generateRSSFeed(data.posts);
+
     return {
       props: {
         // return modified data
@@ -36,18 +98,6 @@ export const getStaticProps: GetStaticProps = async () => {
     // different kind of error? -> 404
     return { notFound: true };
   }
-};
-
-type Props = {
-  posts: {
-    title: string;
-    slug: string;
-    publishDate: string | null;
-    author: {
-      name: string;
-    };
-    snippet: string;
-  }[];
 };
 
 const Blog: NextPage<Props> = ({ posts }: Props) => {
@@ -77,7 +127,10 @@ const Blog: NextPage<Props> = ({ posts }: Props) => {
                   </h2>
                   <time>{getDate(post.publishDate)}</time>
                 </div>
-                <p className="max-w-2xl mt-2 ">{post.snippet}</p>
+                <p className="max-w-2xl mt-2 ">
+                  {post.plaintext.slice(0, 200) +
+                    (post.plaintext.length > 200 ? "..." : "")}
+                </p>
               </article>
             </a>
           </Link>

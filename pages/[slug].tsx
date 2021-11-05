@@ -26,7 +26,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
       // static generate these post pages at build time
     ],
     // if the page wasn't pre-generated, force the user to wait for the server to generate it
-    fallback: "blocking"
+    fallback: false
   };
 };
 
