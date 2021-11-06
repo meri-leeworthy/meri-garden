@@ -9,6 +9,18 @@ import {
 } from "@keystone-next/document-renderer";
 import { Back } from "components/Back";
 
+interface Post {
+  slug: string;
+}
+
+const GET_POSTS = gql`
+  query {
+    posts {
+      slug
+    }
+  }
+`;
+
 const GET_PAGE = gql`
   query ($slug: String) {
     post(where: { slug: $slug }) {
@@ -20,9 +32,14 @@ const GET_PAGE = gql`
   }
 `;
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async (params) => {
+  const { data, error } = await client.query({
+    query: GET_POSTS
+  });
+
   return {
     paths: [
+      data.posts.map((post: Post) => ({ params: { slug: post.slug } }))
       // static generate these post pages at build time
     ],
     // if the page wasn't pre-generated, force the user to wait for the server to generate it
