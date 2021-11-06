@@ -38,10 +38,8 @@ export const getStaticPaths: GetStaticPaths = async (params) => {
   });
 
   return {
-    paths: [
-      data.posts.map((post: Post) => ({ params: { slug: post.slug } }))
-      // static generate these post pages at build time
-    ],
+    paths: data.posts.map((post: Post) => ({ params: { slug: post.slug } })),
+    // static generate these post pages at build time
     // if the page wasn't pre-generated, force the user to wait for the server to generate it
     fallback: false
   };
