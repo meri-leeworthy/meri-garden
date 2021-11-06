@@ -83,19 +83,22 @@ export const getStaticProps: GetStaticProps = async () => {
       query: GET_POSTS
     });
     // error -> 404 (rather than just breaking)
-    if (!data || error) return { notFound: true };
+    if (!data || error) {
+      console.log("blahhhh");
+      return { notFound: true };
+    }
 
     generateRSSFeed(data.posts);
 
     return {
       props: {
-        // return modified data
         posts: data.posts
-      },
-      revalidate: 10
+      }
+      // revalidate: 10
     };
   } catch {
     // different kind of error? -> 404
+    console.log("bleeeh??");
     return { notFound: true };
   }
 };
