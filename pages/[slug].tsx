@@ -60,8 +60,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     return {
       props: {
         post: data.post
-      },
-      revalidate: 10
+      }
     };
   } catch {
     // different kind of error? -> 404
