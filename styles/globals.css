@@ -139,6 +139,10 @@
     @apply text-blue-600 underline;
   }
 
+  article.document ol li {
+    @apply list-decimal list-inside;
+  }
+
   /* article.document a.a-unstyled {
     @apply text-black no-underline dark:text-gray-300;
   } */

@@ -84,13 +84,13 @@ const Blog: NextPage<Props> = ({ post }: Props) => {
   };
 
   return (
-    <div className="flex flex-col flex-wrap items-center justify-center w-screen h-screen">
+    <div className="flex flex-col items-center h-screen max-w-screen-xl">
       <Head>
         <title>blog - meri.garden</title>
         <meta name="description" content="Meri Leeworthy as writer." />
       </Head>
-      <header>
-        <h1 className="font-mono text-6xl">{post.title}</h1>
+      <header className="mt-20">
+        <h1 className="max-w-4xl font-mono text-6xl">{post.title}</h1>
         <time>{getDate(post.publishDate)}</time>
       </header>
       <main className="p-12">
