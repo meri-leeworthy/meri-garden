@@ -119,12 +119,12 @@ const Blog: NextPage<Props> = ({ posts }: Props) => {
       <header>
         <h1 className="font-mono text-6xl">meri blog</h1>
       </header>
-      <main className="p-12">
+      <main className="flex flex-col justify-start p-12 space-y-8">
         {posts.map((post) => (
           <Link key={post.slug} href={`/${post.slug}`}>
-            <a>
-              <article key={post.slug} className="flex max-w-xl space-x-6">
-                <div className="flex flex-col items-end justify-center">
+            <a className="">
+              <article className="flex max-w-xl space-x-6">
+                <div className="flex flex-col items-end justify-center flex-shrink-0 w-32">
                   <h2 className="font-mono text-2xl text-right">
                     {post.title}
                   </h2>

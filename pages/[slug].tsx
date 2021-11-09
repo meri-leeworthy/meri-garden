@@ -25,6 +25,7 @@ const GET_PAGE = gql`
   query ($slug: String) {
     post(where: { slug: $slug }) {
       title
+      publishDate
       content {
         document
       }
