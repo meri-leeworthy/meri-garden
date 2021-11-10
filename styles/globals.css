@@ -132,7 +132,7 @@
 
 @layer components {
   article.document {
-    @apply space-y-4 max-w-2xl;
+    @apply space-y-4 max-w-2xl w-full;
   }
 
   article.document a {

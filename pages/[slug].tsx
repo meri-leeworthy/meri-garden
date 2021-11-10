@@ -1,6 +1,7 @@
 import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import { gql } from "@apollo/client";
 import client from "lib/apollo-client";
 import {
@@ -27,11 +28,26 @@ const GET_PAGE = gql`
       title
       publishDate
       content {
-        document
+        document(hydrateRelationships: true)
       }
     }
   }
 `;
+
+const componentBlocks = {
+  cloudinaryImage: ({ image }: any) => {
+    const data = image?.data;
+    console.log(image);
+    if (!image) return <div>No Image Selected</div>;
+
+    //replace with Next Image if I can get image size from API
+    return (
+      <div className="relative max-w-xl max-h-full min-w-full h-96">
+        <img src={data?.image?.publicUrlTransformed} alt={data?.description} />
+      </div>
+    );
+  }
+};
 
 export const getStaticPaths: GetStaticPaths = async (params) => {
   const { data, error } = await client.query({
@@ -94,9 +110,12 @@ const Blog: NextPage<Props> = ({ post }: Props) => {
         <h1 className="max-w-4xl font-mono text-6xl">{post.title}</h1>
         <time>{getDate(post.publishDate)}</time>
       </header>
-      <main className="p-12">
+      <main className="p-12 xl:w-1/2">
         <article className="document">
-          <DocumentRenderer document={post.content.document} />
+          <DocumentRenderer
+            document={post.content.document}
+            componentBlocks={componentBlocks}
+          />
         </article>
         <Back />
       </main>
