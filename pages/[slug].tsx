@@ -6,7 +6,7 @@ import { gql } from "@apollo/client";
 import client from "lib/apollo-client";
 import {
   DocumentRenderer,
-  DocumentRendererProps
+  DocumentRendererProps,
 } from "@keystone-next/document-renderer";
 import { Back } from "components/Back";
 
@@ -46,19 +46,17 @@ const componentBlocks = {
         <img src={data?.image?.publicUrlTransformed} alt={data?.description} />
       </div>
     );
-  }
+  },
 };
 
 export const getStaticPaths: GetStaticPaths = async (params) => {
   const { data, error } = await client.query({
-    query: GET_POSTS
+    query: GET_POSTS,
   });
 
   return {
     paths: data.posts.map((post: Post) => ({ params: { slug: post.slug } })),
-    // static generate these post pages at build time
-    // if the page wasn't pre-generated, force the user to wait for the server to generate it
-    fallback: false
+    fallback: false,
   };
 };
 
@@ -68,16 +66,16 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       query: GET_PAGE,
       variables: {
         // plug the route into the query
-        slug: params?.slug
-      }
+        slug: params?.slug,
+      },
     });
     // error -> 404 (rather than just breaking)
     if (!data || error) return { notFound: true };
     console.log(data);
     return {
       props: {
-        post: data.post
-      }
+        post: data.post,
+      },
     };
   } catch {
     // different kind of error? -> 404
