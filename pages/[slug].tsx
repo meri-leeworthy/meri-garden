@@ -10,10 +10,6 @@ import {
 } from "@keystone-next/document-renderer";
 import { Back } from "components/Back";
 
-interface Post {
-  slug: string;
-}
-
 const GET_POSTS = gql`
   query {
     posts {
@@ -55,7 +51,9 @@ export const getStaticPaths: GetStaticPaths = async (params) => {
   });
 
   return {
-    paths: data.posts.map((post: Post) => ({ params: { slug: post.slug } })),
+    paths: data.posts.map((post: { slug: string }) => ({
+      params: { slug: post.slug },
+    })),
     fallback: false,
   };
 };
