@@ -1,0 +1,94 @@
+import { useMemo, useState, useCallback } from "react";
+import {
+  createEditor,
+  BaseEditor,
+  Descendant,
+  Transforms,
+  Editor,
+} from "slate";
+import {
+  Slate,
+  Editable,
+  withReact,
+  ReactEditor,
+  RenderElementProps,
+} from "slate-react";
+
+type CustomElement = { type: "paragraph" | "h1"; children: CustomText[] };
+type CustomText = { text: string };
+type CustomEditor = BaseEditor & ReactEditor;
+
+declare module "slate" {
+  interface CustomTypes {
+    Editor: CustomEditor;
+    Element: CustomElement;
+    Text: CustomText;
+  }
+}
+
+const DefaultElement = (props: RenderElementProps) => {
+  return <p {...props.attributes}>{props.children}</p>;
+};
+
+const HeadingElement = (props: RenderElementProps) => {
+  return (
+    <h1 className="text-2xl" {...props.attributes}>
+      {props.children}
+    </h1>
+  );
+};
+
+const EditorPage = () => {
+  const editor: CustomEditor = useMemo(() => withReact(createEditor()), []);
+  const initialValue: CustomElement[] = [
+    {
+      type: "paragraph",
+      children: [{ text: "A line of text in a paragraph." }],
+    },
+  ];
+  const [value, setValue] = useState<Descendant[]>(initialValue);
+
+  const renderElement = useCallback((props: RenderElementProps) => {
+    switch (props.element.type) {
+      case "h1":
+        return <HeadingElement {...props} />;
+      default:
+        return <DefaultElement {...props} />;
+    }
+  }, []);
+
+  function isElement(node: Node): node is CustomElement {
+    return (node as CustomElement).type !== undefined;
+  }
+
+  return (
+    <Slate
+      editor={editor}
+      value={value}
+      onChange={(newValue) => setValue(newValue)}
+    >
+      <Editable
+        renderElement={renderElement}
+        onKeyDown={(event) => {
+          if (event.key === "h" && event.ctrlKey) {
+            event.preventDefault();
+            const match = Editor.nodes(editor, {
+              match: (node) => {
+                if (!!node.type) {
+                  return node.type === "h1";
+                } else return false;
+              },
+            });
+            Transforms.setNodes(
+              editor,
+              { type: match ? "paragraph" : "h1" },
+              { match: (n) => Editor.isBlock(editor, n) }
+            );
+          }
+        }}
+      />
+    </Slate>
+  );
+};
+
+export default EditorPage;

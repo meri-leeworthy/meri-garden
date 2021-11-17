@@ -10,6 +10,11 @@
   "dependencies": {
     "@apollo/client": "^3.4.16",
     "@keystone-next/document-renderer": "^4.0.1",
+    "@tailwindcss/typography": "^0.4.1",
+    "@tiptap/extension-collaboration": "^2.0.0-beta.31",
+    "@tiptap/react": "^2.0.0-beta.94",
+    "@tiptap/starter-kit": "^2.0.0-beta.141",
+    "@udecode/plate": "^7.0.3",
     "feed": "^4.2.2",
     "graphql": "^16.0.1",
     "next": "12.0.2",
@@ -19,7 +24,11 @@
     "react-icons": "^4.3.1",
     "slate": "^0.70.0",
     "slate-history": "^0.66.0",
-    "slate-react": "^0.70.0"
+    "slate-hyperscript": "^0.67.0",
+    "slate-react": "^0.70.0",
+    "styled-components": "^5.3.3",
+    "y-webrtc": "^10.2.2",
+    "yjs": "^13.5.21"
   },
   "devDependencies": {
     "@types/node": "16.11.6",

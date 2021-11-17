@@ -6,12 +6,12 @@ module.exports = {
     fontFamily: {
       title: ["Beastly", "sans-serif"],
       sans: ["WorkSans", "sans-serif"],
-      mono: ["Space-Mono", "monospace"]
+      mono: ["Space-Mono", "monospace"],
     },
-    extend: {}
+    extend: {},
   },
   variants: {
-    extend: {}
+    extend: {},
   },
-  plugins: []
+  plugins: [require("@tailwindcss/typography")],
 };

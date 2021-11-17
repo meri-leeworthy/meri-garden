@@ -143,6 +143,18 @@
     @apply list-decimal list-inside;
   }
 
+  h1.slate-h1 {
+    @apply mt-2 border border-white;
+  }
+
+  .no-focus-ring-inside div {
+    @apply focus:outline-none;
+  }
+
+  .tiptap-toolbar button {
+    @apply border border-black rounded-lg mr-4 px-2 my-1;
+  }
+
   /* article.document a.a-unstyled {
     @apply text-black no-underline dark:text-gray-300;
   } */

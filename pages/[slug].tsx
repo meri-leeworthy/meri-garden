@@ -101,8 +101,8 @@ const Blog: NextPage<Props> = ({ post }: Props) => {
         <title>blog - meri.garden</title>
         <meta name="description" content="Meri Leeworthy as writer." />
       </Head>
-      <header className="mt-20 space-y-2">
-        <h1 className="max-w-4xl font-mono px-2 text-3xl xl:text-6xl">
+      <header className="mt-20 space-y-2 px-2">
+        <h1 className="max-w-4xl font-mono text-3xl xl:text-6xl">
           {post.title}
         </h1>
         <time>{getDate(post.publishDate)}</time>
