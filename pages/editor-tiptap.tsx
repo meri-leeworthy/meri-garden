@@ -1,14 +1,14 @@
+import { useState, useEffect } from "react";
 import { useEditor, EditorContent, Editor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Paragraph from "@tiptap/extension-paragraph";
 import Heading from "@tiptap/extension-heading";
 import Collaboration from "@tiptap/extension-collaboration";
+import CollaborationCursor from "@tiptap/extension-collaboration-cursor";
 import * as Y from "yjs";
 import { WebrtcProvider } from "y-webrtc";
 
 const ydoc = new Y.Doc();
-// Registered with a WebRTC provider
-const provider = new WebrtcProvider("example-document", ydoc);
 
 const MenuBar = ({ editor }: { editor: Editor | null }) => {
   if (!editor) {
@@ -126,6 +126,16 @@ const MenuBar = ({ editor }: { editor: Editor | null }) => {
 };
 
 const Tiptap = () => {
+  const isBrowser = typeof window !== "undefined";
+  type initWs = WebrtcProvider | null;
+  const [wsInstance, setWsInstance] = useState<initWs>(null);
+  useEffect(() => {
+    if (isBrowser) {
+      const ws = new WebrtcProvider("tiptap-collaboration-extension-1", ydoc);
+      setWsInstance(ws);
+    }
+  }, [isBrowser]);
+
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -133,6 +143,13 @@ const Tiptap = () => {
       Collaboration.configure({
         document: ydoc,
       }),
+      //   CollaborationCursor.configure({
+      //     provider: wsInstance,
+      //     user: {
+      //       name: "Cyndi Lauper",
+      //       color: "#f783ac",
+      //     },
+      //   }),
     ],
     content: "<p>Hello World!</p>",
     editorProps: {
