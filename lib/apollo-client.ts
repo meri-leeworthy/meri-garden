@@ -1,8 +1,12 @@
-import { ApolloClient, InMemoryCache } from "@apollo/client";
+import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
 
 const client = new ApolloClient({
-  uri: process.env.API_URL + "/api/graphql",
-  cache: new InMemoryCache()
+  link: new HttpLink({
+    uri: process.env.NEXT_PUBLIC_API_URL + "/api/graphql",
+    credentials: "include",
+  }),
+  ssrMode: typeof window === "undefined",
+  cache: new InMemoryCache(),
 });
 
 export default client;

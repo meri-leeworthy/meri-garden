@@ -21,7 +21,7 @@ const MenuBar = ({ editor }: { editor: Editor | null }) => {
         onClick={() => editor.chain().focus().toggleBold().run()}
         className={editor.isActive("bold") ? "is-active" : ""}
       >
-        bold
+        bold!
       </button>
       <button
         onClick={() => editor.chain().focus().toggleItalic().run()}
@@ -130,47 +130,52 @@ const Tiptap = () => {
   type initWs = WebrtcProvider | null;
   const [wsInstance, setWsInstance] = useState<initWs>(null);
   useEffect(() => {
-    if (isBrowser) {
+    if (isBrowser && !wsInstance) {
       const ws = new WebrtcProvider("tiptap-collaboration-extension-1", ydoc);
       setWsInstance(ws);
+      //   return () => ws.disconnect(); //this results in failed connection
     }
-  }, [isBrowser]);
+  }, [isBrowser, wsInstance]);
 
-  const editor = useEditor({
-    extensions: [
-      StarterKit,
-      Heading.configure({ HTMLAttributes: { class: "text-white" } }),
-      Collaboration.configure({
-        document: ydoc,
-      }),
-      //   CollaborationCursor.configure({
-      //     provider: wsInstance,
-      //     user: {
-      //       name: "Cyndi Lauper",
-      //       color: "#f783ac",
-      //     },
-      //   }),
-    ],
-    content: "<p>Hello World!</p>",
-    editorProps: {
-      attributes: {
-        class: "prose lg:prose-xl dark:text-white",
+  let editor = null;
+
+  if (wsInstance) {
+    editor = new Editor({
+      extensions: [
+        StarterKit,
+        Heading.configure({ HTMLAttributes: { class: "dark:text-white" } }),
+        Collaboration.configure({
+          document: ydoc,
+        }),
+        CollaborationCursor.configure({
+          provider: wsInstance,
+          user: {
+            name: "Cyndi Lauper",
+            color: "#f783ac",
+          },
+        }),
+      ],
+      content: "<p>Hello World!</p>",
+      editorProps: {
+        attributes: {
+          class: "dark:text-white",
+        },
       },
-    },
-  });
+    });
+  }
 
   const json = editor?.getJSON();
 
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen p-8">
+    <div className="flex flex-col items-center w-screen min-h-screen p-8">
       <div className="flex flex-wrap max-w-xl tiptap-toolbar">
         <MenuBar editor={editor} />
       </div>
       <EditorContent
         editor={editor}
-        className="w-1/2 p-8 my-4 border border-black dark:border-white rounded-xl no-focus-ring-inside"
+        className="w-full p-8 my-4 prose border border-black lg:w-2/3 xl:w-1/2 dark:border-white no-focus-ring-inside dark:prose-dark lg:prose-xl"
       />
-      <div>{JSON.stringify(json)}</div>
+      <div className="my-2">{JSON.stringify(json)}</div>
     </div>
   );
 };
