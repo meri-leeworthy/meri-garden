@@ -1,5 +1,4 @@
 import { useTheme } from "next-themes";
-// import { useState, useEffect } from "react";
 import { FiSun, FiMoon } from "react-icons/fi";
 
 export const WithThemes = ({
@@ -13,7 +12,7 @@ export const WithThemes = ({
     if (currentTheme === "dark") {
       return (
         <button
-          className="mt-4 border p-2 border-gray-400 dark:border-white rounded-full text-xl"
+          className="p-2 mt-4 text-xl border border-gray-400 rounded-full dark:border-white"
           onClick={() => setTheme("light")}
         >
           <FiSun />
@@ -22,7 +21,7 @@ export const WithThemes = ({
     } else {
       return (
         <button
-          className="mt-4 border p-2 border-gray-400 dark:border-white rounded-full text-xl"
+          className="p-2 mt-4 text-xl border border-gray-400 rounded-full dark:border-white"
           onClick={() => setTheme("dark")}
         >
           <FiMoon />
@@ -36,7 +35,7 @@ export const WithThemes = ({
   return (
     <>
       {children}
-      <div className="flex justify-center md:justify-end pb-4 px-4 md:fixed w-full bottom-0">
+      <div className="bottom-0 flex justify-center w-full px-4 pb-4 md:justify-end md:fixed">
         {renderThemeButton()}
       </div>
     </>
