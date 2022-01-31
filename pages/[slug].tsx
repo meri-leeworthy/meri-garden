@@ -2,98 +2,40 @@ import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import { gql } from "@apollo/client";
-import client from "lib/apollo-client";
-import {
-  DocumentRenderer,
-  DocumentRendererProps,
-} from "@keystone-next/document-renderer";
 import { Back } from "components/Back";
+import { postFilePaths, POSTS_PATH } from "lib/mdxUtils";
+import { serialize } from "next-mdx-remote/serialize";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { readFileSync } from "fs";
+import path from "path";
+import matter from "gray-matter";
+import { Post, getDate } from "./blog";
 
-const GET_POSTS = gql`
-  query {
-    posts {
-      slug
-    }
-  }
-`;
-
-const GET_PAGE = gql`
-  query ($slug: String) {
-    post(where: { slug: $slug }) {
-      title
-      publishDate
-      content {
-        document(hydrateRelationships: true)
-      }
-    }
-  }
-`;
-
-const componentBlocks = {
-  cloudinaryImage: ({ image }: any) => {
-    const data = image?.data;
-    if (!image) return <div>No Image Selected</div>;
-
-    //replace with Next Image if I can get image size from API
-    return (
-      <div className="relative max-w-xl max-h-full min-w-full">
-        <img src={data?.image?.publicUrlTransformed} alt={data?.description} />
-      </div>
-    );
-  },
-};
-
-export const getStaticPaths: GetStaticPaths = async (params) => {
-  const { data, error } = await client.query({
-    query: GET_POSTS,
-  });
-
+export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: data.posts.map((post: { slug: string }) => ({
-      params: { slug: post.slug },
+    paths: postFilePaths.map((filePath) => ({
+      params: { slug: filePath.slice(0, -4) },
     })),
     fallback: false,
   };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  try {
-    const { data, error } = await client.query({
-      query: GET_PAGE,
-      variables: {
-        // plug the route into the query
-        slug: params?.slug,
-      },
-    });
-    // error -> 404 (rather than just breaking)
-    if (!data || error) return { notFound: true };
-    console.log(data);
-    return {
-      props: {
-        post: data.post,
-      },
-    };
-  } catch {
-    // different kind of error? -> 404
-    return { notFound: true };
-  }
+  const slug = (params?.slug as string) || "";
+  const source = readFileSync(path.join(POSTS_PATH, slug + ".mdx"));
+
+  const { content, data } = matter(source);
+  const mdxSource = await serialize(content);
+
+  return { props: { post: { data, slug, source: mdxSource } } };
 };
 
 type Props = {
-  post: {
-    title: string;
-    content: DocumentRendererProps;
-    publishDate: string | null;
-  };
+  post: Post & { source: MDXRemoteSerializeResult };
 };
 
 const Blog: NextPage<Props> = ({ post }: Props) => {
-  const getDate = (date: string | null) => {
-    if (!date) return "";
-    const d = new Date(date);
-    return `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
-  };
+  const components = {};
 
   return (
     <div className="flex flex-col items-center h-screen max-w-screen-xl">
@@ -101,18 +43,15 @@ const Blog: NextPage<Props> = ({ post }: Props) => {
         <title>blog - meri.garden</title>
         <meta name="description" content="Meri Leeworthy as writer." />
       </Head>
-      <header className="mt-20 space-y-2 px-2">
+      <header className="px-2 mt-20 space-y-2">
         <h1 className="max-w-4xl font-mono text-3xl xl:text-6xl">
-          {post.title}
+          {post.data.title}
         </h1>
-        <time>{getDate(post.publishDate)}</time>
+        <time>{getDate(post.data.publishDate)}</time>
       </header>
       <main className="p-12 xl:w-1/2">
         <article className="document">
-          <DocumentRenderer
-            document={post.content.document}
-            componentBlocks={componentBlocks}
-          />
+          <MDXRemote {...post.source} components={components} />
         </article>
         <Back />
       </main>

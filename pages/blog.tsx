@@ -1,115 +1,50 @@
 import type { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import { gql } from "@apollo/client";
-import client from "lib/apollo-client";
-import { Feed } from "feed";
-import { writeFileSync } from "fs";
+import { readFileSync } from "fs";
+import path from "path";
+import { postFilePaths, POSTS_PATH } from "lib/mdxUtils";
+import matter from "gray-matter";
+import { generateRSSFeed } from "lib/build-rss-feed";
 
-interface Post {
-  title: string;
-  slug: string;
-  publishDate: string | null;
-  author: {
-    name: string;
+export interface Post {
+  content?: string;
+  data: {
+    title: string;
+    isPublished: boolean;
+    publishDate: string;
   };
-  plaintext: string;
+  slug: string;
 }
 
 type Props = {
   posts: Post[];
 };
 
-const GET_POSTS = gql`
-  query {
-    posts {
-      title
-      slug
-      plaintext
-      publishDate
-      author {
-        name
-      }
-    }
-  }
-`;
-
-const generateRSSFeed = (posts: Post[]) => {
-  const baseUrl = "https://meri.garden";
-  const author = {
-    name: "Meri Leeworthy",
-    email: "doesntwork@meri.garden",
-    link: "https://meri.garden"
-  };
-
-  // Construct a new Feed object
-  const feed = new Feed({
-    title: "Writing by Meri Leeworthy",
-    description: "Programming, art, politics, parenting/domestic work.",
-    id: baseUrl,
-    copyright: "Property is theft 2021, Meri Leeworthy",
-    link: baseUrl,
-    language: "en",
-    feedLinks: {
-      rss2: `${baseUrl}/rss.xml`
-    },
-    author
-  });
-
-  // Add each article to the feed
-  posts.forEach((post) => {
-    const { plaintext, slug, publishDate, title } = post;
-    const url = `${baseUrl}/${slug}`;
-    const date = publishDate || "2021-11-02T00:38:00.000Z";
-
-    feed.addItem({
-      title,
-      id: url,
-      link: url,
-      content: plaintext,
-      author: [author],
-      date: new Date(date)
-    });
-  });
-
-  // Write the RSS output to a public file, making it
-  // accessible at meri.garden/rss.xml
-  writeFileSync("public/rss.xml", feed.rss2());
+export const getDate = (date: string | null) => {
+  if (!date) return "";
+  const d = new Date(date);
+  return `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  try {
-    const { data, error } = await client.query({
-      query: GET_POSTS
-    });
-    // error -> 404 (rather than just breaking)
-    if (!data || error) {
-      console.log("blahhhh");
-      return { notFound: true };
-    }
-
-    generateRSSFeed(data.posts);
-
+  const posts = postFilePaths.map((filePath) => {
+    const source = readFileSync(path.join(POSTS_PATH, filePath));
+    const { content, data } = matter(source);
+    const slug = filePath.slice(0, -4);
     return {
-      props: {
-        posts: data.posts
-      }
-      // revalidate: 10
+      content,
+      data,
+      slug,
     };
-  } catch {
-    // different kind of error? -> 404
-    console.log("bleeeh??");
-    return { notFound: true };
-  }
+  });
+
+  generateRSSFeed(posts as Post[]);
+
+  return { props: { posts } };
 };
 
-const Blog: NextPage<Props> = ({ posts }: Props) => {
-  const getDate = (date: string | null) => {
-    if (!date) return "";
-    const d = new Date(date);
-    return `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
-  };
-
+const Blog: NextPage<Props> = ({ posts }) => {
   return (
     <div className="flex flex-col flex-wrap items-center justify-center w-screen h-screen">
       <Head>
@@ -120,24 +55,26 @@ const Blog: NextPage<Props> = ({ posts }: Props) => {
         <h1 className="font-mono text-6xl">meri blog</h1>
       </header>
       <main className="flex flex-col justify-start p-12 space-y-8">
-        {posts.map((post) => (
-          <Link key={post.slug} href={`/${post.slug}`}>
-            <a className="">
-              <article className="flex max-w-xl space-x-6">
-                <div className="flex flex-col items-end justify-center flex-shrink-0 w-32">
-                  <h2 className="font-mono text-2xl text-right">
-                    {post.title}
-                  </h2>
-                  <time>{getDate(post.publishDate)}</time>
-                </div>
-                <p className="max-w-2xl mt-2 ">
-                  {post.plaintext.slice(0, 200) +
-                    (post.plaintext.length > 200 ? "..." : "")}
-                </p>
-              </article>
-            </a>
-          </Link>
-        ))}
+        {posts.map((post) => {
+          return (
+            <Link key={post.slug} href={`/${post.slug}`}>
+              <a className="">
+                <article className="flex max-w-xl space-x-6">
+                  <div className="flex flex-col items-end justify-center flex-shrink-0 w-32">
+                    <h2 className="font-mono text-2xl text-right">
+                      {post.data.title}
+                    </h2>
+                    <time>{getDate(post.data.publishDate)}</time>
+                  </div>
+                  <p className="max-w-2xl mt-2 ">
+                    {post.content?.slice(0, 200) +
+                      (post.content && post.content.length > 200 ? "..." : "")}
+                  </p>
+                </article>
+              </a>
+            </Link>
+          );
+        })}
       </main>
     </div>
   );
