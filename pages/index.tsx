@@ -47,10 +47,10 @@ const Home: NextPage = () => {
       <div
         className={`w-screen relative h-screen min-w-full snap-both snap-mandatory grid-box scroll-smooth ${
           scrollable === "Y"
-            ? "overflow-y-scroll overflow-x-hidden"
+            ? "sm:overflow-y-scroll overflow-x-hidden"
             : scrollable === "X"
             ? "overflow-x-scroll overflow-y-hidden"
-            : "overflow-scroll"
+            : "overflow-x-scroll sm:overflow-scroll"
         }`}
         ref={viewportGrid}
       >
@@ -58,7 +58,7 @@ const Home: NextPage = () => {
           {scrollable}
           <Link href="blog">
             <a>
-              <h1 className="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-9xl">
+              <h1 className="font-serif text-5xl text-white sm:text-7xl md:text-8xl lg:text-9xl">
                 Meri Leeworthy
               </h1>
             </a>

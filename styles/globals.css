@@ -191,6 +191,10 @@
     z-index: -10;
   }
 
+  .mix-invert {
+    mix-blend-mode: difference;
+  }
+
   /* article.document a.a-unstyled {
     @apply text-black no-underline dark:text-gray-300;
   } */

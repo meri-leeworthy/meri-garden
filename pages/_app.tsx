@@ -6,9 +6,9 @@ import { WithThemes } from "components/WithThemes";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class" enableSystem={true}>
-      <WithThemes>
-        <Component {...pageProps} />
-      </WithThemes>
+      {/* <WithThemes> */}
+      <Component {...pageProps} />
+      {/* </WithThemes> */}
     </ThemeProvider>
   );
 }
