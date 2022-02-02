@@ -5,6 +5,7 @@ module.exports = {
   theme: {
     fontFamily: {
       title: ["Beastly", "sans-serif"],
+      serif: ["BluuNext", "serif"],
       sans: ["WorkSans", "sans-serif"],
       mono: ["Space-Mono", "monospace"],
     },

@@ -12,6 +12,23 @@
   }
 
   @font-face {
+    font-family: "BluuNext";
+    src: url("../public/fonts/bluu-next/BluuNext-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "BluuNext";
+    src: url("../public/fonts/bluu-next/BluuNext-Bolditalic.woff")
+      format("woff");
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
     font-family: "WorkSans";
     src: url("../public/fonts/worksans/WorkSans-Black.woff") format("woff");
     font-weight: 900;
@@ -143,6 +160,10 @@
     @apply list-decimal list-inside;
   }
 
+  article.document code {
+    font-variant-ligatures: none;
+  }
+
   h1.slate-h1 {
     @apply mt-2 border border-white;
   }
@@ -153,6 +174,21 @@
 
   .tiptap-toolbar button {
     @apply border border-black rounded-lg mr-4 px-2 my-1;
+  }
+
+  .grid-box {
+    display: grid;
+    grid-template-rows: repeat(3, 100vh);
+    grid-template-columns: repeat(3, 100vw);
+  }
+
+  .pretty-background {
+    position: absolute;
+    width: calc(100vw * 3);
+    height: calc(100vh * 3);
+    background: radial-gradient(#e66465, #9198e5);
+    inset: 0 auto auto 0;
+    z-index: -10;
   }
 
   /* article.document a.a-unstyled {

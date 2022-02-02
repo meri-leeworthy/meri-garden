@@ -50,7 +50,7 @@ const Blog: NextPage<Props> = ({ post }: Props) => {
         <time>{getDate(post.data.publishDate)}</time>
       </header>
       <main className="p-12 xl:w-1/2">
-        <article className="document">
+        <article className="prose lg:prose-xl document dark:prose-invert">
           <MDXRemote {...post.source} components={components} />
         </article>
         <Back />
