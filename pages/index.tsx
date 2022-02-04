@@ -50,24 +50,26 @@ const Home: NextPage = () => {
         ref={viewportGrid}
       >
         <section className="flex flex-col justify-center w-screen min-w-full min-h-screen p-8 snap-start snap-always">
-          <h1 className="font-serif text-5xl leading-relaxed sm:text-7xl md:text-8xl lg:text-8xl">
+          <h1 className="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-8xl">
             Meri Leeworthy
           </h1>
-          <p className="mt-8 text-3xl font-bold">
+          <p className="mt-8 text-2xl font-bold md:text-3xl">
             Hire me! I am looking for work as a{" "}
             <strong className="font-bold bg-pink-300">
               frontend or full-stack developer.
             </strong>
           </p>
-          <p className="mt-10 text-2xl text-neutral-700">
+          <p className="mt-10 text-xl md:text-2xl text-neutral-700">
             Swipe right for more about me.
           </p>
-          <span className="-mt-2 font-serif text-7xl">&rarr;</span>
+          <span>&rarr;</span>
         </section>
 
         <section className="swipe-card">
-          <h2>About</h2>
-          <div className="columns-sm max-h-[80vh] pt-16 gap-16">
+          <div className="subheading">
+            <h2>About</h2>
+          </div>
+          <div className="content">
             <p>I am a self-taught programmer since high school.</p>
             <p>
               When I was about 14, I started making basic websites for small
@@ -95,13 +97,15 @@ const Home: NextPage = () => {
               Directory, which pulled me back deep into the web development
               world.
             </p>
-            <span className="-mt-2 font-serif text-7xl">&rarr;</span>
+            <span>&rarr;</span>
           </div>
         </section>
 
         <section className="swipe-card">
-          <h2>Radical Directory</h2>
-          <div className="columns-sm max-h-[70vh] gap-16">
+          <div className="subheading">
+            <h2>Radical Directory</h2>
+          </div>
+          <div className="content">
             <p>
               Radical Directory is a vision for a future in which communities
               are empowered to use media to create social change.
@@ -130,13 +134,15 @@ const Home: NextPage = () => {
               prioritised slow growth and design in collaboration with
               community.
             </p>
-            <span className="-mt-2 font-serif text-7xl">&rarr;</span>
+            <span>&rarr;</span>
           </div>
         </section>
 
         <section className="swipe-card">
-          <h2>Recurse Centre</h2>
-          <div className="columns-sm max-h-[70vh] gap-16">
+          <div className="subheading">
+            <h2>Recurse Centre</h2>
+          </div>
+          <div className="content">
             <p>
               The next stage of my web development journey has been with the
               Recurse Centre, an organisation based in New York which runs
