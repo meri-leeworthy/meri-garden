@@ -198,7 +198,8 @@
   }
 
   .swipe-container {
-    @apply relative flex w-screen box-content h-screen min-w-full overflow-x-scroll snap-x snap-mandatory scroll-smooth;
+    @apply relative flex w-screen box-content min-w-full overflow-x-scroll snap-x snap-mandatory scroll-smooth;
+    height: calc(100vh - env(safe-area-inset-bottom));
     scrollbar-color: black transparent;
   }
 
@@ -225,7 +226,7 @@
 
   .swipe-card .content {
     @apply md:relative my-auto columns-1 md:columns-2 xl:columns-3 overflow-y-scroll md:overflow-y-visible pt-16 px-4 pl-[4rem] sm:pl-[5rem] md:pl-[8rem] lg:pl-[12rem] md:mr-8 gap-8 mt-8 mb-5 xl:w-[80rem];
-    max-height: calc(100vh - 3.25rem);
+    max-height: calc(100vh - env(safe-area-inset-bottom) - 3.25rem);
   }
 
   section span {
