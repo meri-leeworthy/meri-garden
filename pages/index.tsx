@@ -65,6 +65,16 @@ const Home: NextPage = () => {
         <section className="swipe-card">
           <div className="content">
             <h2>About</h2>
+            <ul>
+              <li>Javascript</li>
+              <li>Typescript</li>
+              <li>CSS</li>
+              <li>GraphQL</li>
+              <li>React</li>
+              <li>Next.js</li>
+              <li>Tailwind</li>
+              <li>Apollo</li>
+            </ul>
             <p>I am a self-taught programmer since high school.</p>
             <p>
               When I was about 14, I started making basic websites for small

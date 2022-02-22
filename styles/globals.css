@@ -199,9 +199,9 @@
   }
 
   .swipe-container {
-    @apply relative flex w-screen box-content min-w-full overflow-x-scroll snap-x snap-mandatory scroll-smooth;
-    height: calc(100vh);
-    height: calc(100vh - env(safe-area-inset-bottom));
+    @apply relative flex w-screen min-w-full overflow-x-scroll snap-x snap-mandatory scroll-smooth border border-white;
+    max-height: calc(100vh);
+    max-height: calc(100vh - env(safe-area-inset-bottom));
     /* scrollbar-color: black transparent; */
   }
 
@@ -224,6 +224,10 @@
 
   .swipe-card p {
     @apply text-lg md:text-2xl xl:text-3xl pb-4;
+  }
+
+  .swipe-card ul {
+    @apply text-lg md:text-2xl xl:text-3xl;
   }
 
   .swipe-card .content {
