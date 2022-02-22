@@ -53,7 +53,7 @@ const Home: NextPage = () => {
           <p className="mt-8 text-2xl font-bold md:text-3xl lg:text-4xl xl:text-5xl">
             Hire me! I am looking for work as a{" "}
             <strong className="font-bold bg-pink-300 dark:bg-pink-600">
-              frontend or full-stack web developer.
+              frontend web developer.
             </strong>
           </p>
           <p className="mt-10 text-xl md:text-2xl lg:text-3xl xl:text-4xl text-neutral-700 dark:text-neutral-300">

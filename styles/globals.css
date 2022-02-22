@@ -154,6 +154,7 @@
 
   .theme-footer {
     @apply fixed bottom-0 flex justify-end w-full px-5 pb-5;
+    bottom: env(safe-area-inset-bottom);
   }
 
   .theme-footer button {
@@ -199,18 +200,19 @@
 
   .swipe-container {
     @apply relative flex w-screen box-content min-w-full overflow-x-scroll snap-x snap-mandatory scroll-smooth;
+    height: calc(100vh);
     height: calc(100vh - env(safe-area-inset-bottom));
-    scrollbar-color: black transparent;
+    /* scrollbar-color: black transparent; */
   }
 
-  .swipe-container::-webkit-scrollbar {
-    width: 0; /* Remove scrollbar space */
-    background: transparent; /* Optional: just make scrollbar invisible */
+  /* .swipe-container::-webkit-scrollbar {
+    width: 0; /* Remove scrollbar space 
+    background: transparent; /* Optional: just make scrollbar invisible 
   }
 
   .swipe-container::-webkit-scrollbar-thumb {
     background: black;
-  }
+  } */
 
   .swipe-card {
     @apply relative flex items-end lg:items-center w-screen min-w-full grow h-full snap-start snap-always dark:bg-black z-10 bg-white;
