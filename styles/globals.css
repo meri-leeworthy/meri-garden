@@ -145,6 +145,43 @@
     font-style: italic;
     font-display: swap;
   }
+
+  /* these are for tex gyre */
+
+  @font-face {
+    font-family: "TexGyre";
+    src: url("../public/fonts/tex-gyre/texgyreheroscn-bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "TexGyre";
+    src: url("../public/fonts/tex-gyre/texgyreheroscn-italic.woff")
+      format("woff");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "TexGyre";
+    src: url("../public/fonts/tex-gyre/texgyreheroscn-bolditalic.woff")
+      format("woff");
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "TexGyre";
+    src: url("../public/fonts/tex-gyre/texgyreheroscn-regular.woff")
+      format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
 }
 
 @layer components {
@@ -152,12 +189,12 @@
     @apply selection:bg-pink-300 dark:selection:bg-pink-600 dark:selection:bg-opacity-100;
   }
 
-  .theme-footer {
-    @apply fixed bottom-0 flex justify-end w-full px-5 pb-5;
-    bottom: env(safe-area-inset-bottom);
+  .theme-header {
+    @apply fixed top-0 flex justify-end w-full px-5;
+    /* bottom: env(safe-area-inset-bottom); */
   }
 
-  .theme-footer button {
+  .theme-header button {
     @apply p-2 mt-4 text-xl -z-10 border rounded-full border-gray-400 dark:border-white;
   }
 
@@ -189,37 +226,29 @@
     @apply border border-black rounded-lg mr-4 px-2 my-1;
   }
 
-  .pretty-background {
-    position: absolute;
-    width: calc(100vw * 5);
-    height: 100vh;
-    background: radial-gradient(#fff, #230f24);
-    inset: 0 auto auto 0;
-    z-index: -10;
+  .viewport-container {
+    height: calc(var(--vh, 1vh) * 100);
+    max-height: calc(var(--vh, 1vh) * 100);
   }
 
   .swipe-container {
-    @apply relative flex w-screen min-w-full overflow-x-scroll snap-x snap-mandatory scroll-smooth border border-white;
-    max-height: calc(100vh);
-    max-height: calc(100vh - env(safe-area-inset-bottom));
-    /* scrollbar-color: black transparent; */
+    @apply flex w-screen h-full min-w-full overflow-x-scroll overflow-y-hidden snap-x snap-mandatory scroll-smooth;
   }
 
-  /* .swipe-container::-webkit-scrollbar {
-    width: 0; /* Remove scrollbar space 
-    background: transparent; /* Optional: just make scrollbar invisible 
+  .swipe-card-fixed {
+    @apply flex flex-col h-full justify-center w-screen min-w-full px-8 snap-start snap-always;
   }
-
-  .swipe-container::-webkit-scrollbar-thumb {
-    background: black;
-  } */
 
   .swipe-card {
-    @apply relative flex items-end lg:items-center w-screen min-w-full grow h-full snap-start snap-always dark:bg-black z-10 bg-white;
+    @apply relative flex items-end w-screen min-w-full h-full max-h-full snap-start snap-always dark:bg-black z-10 bg-white;
   }
 
   .swipe-card h2 {
-    @apply absolute w-0 h-0 left-2 md:left-12 z-50 bottom-5 md:bottom-0 text-left font-serif text-5xl whitespace-nowrap italic sm:text-6xl md:text-7xl -rotate-90;
+    @apply absolute w-0 h-0 left-2 md:left-8 z-50 bottom-5 text-left font-serif text-5xl whitespace-nowrap italic md:text-6xl -rotate-90;
+  }
+
+  .swipe-card h3 {
+    @apply text-xl text-center pb-2 font-bold uppercase tracking-widest;
   }
 
   .swipe-card p {
@@ -227,15 +256,63 @@
   }
 
   .swipe-card ul {
-    @apply text-lg md:text-2xl xl:text-3xl;
+    @apply text-xl md:text-2xl xl:text-3xl space-y-4;
   }
 
   .swipe-card .content {
-    @apply md:relative my-auto columns-1 md:columns-2 xl:columns-3 overflow-y-scroll md:overflow-y-visible pt-16 px-4 pl-[4rem] sm:pl-[5rem] md:pl-[8rem] lg:pl-[12rem] md:mr-8 gap-8 mt-8 mb-5 xl:w-[80rem];
-    max-height: calc(100vh - env(safe-area-inset-bottom) - 3.25rem);
+    @apply h-full max-h-full my-auto columns-1 md:columns-2 xl:columns-3 overflow-y-scroll md:overflow-y-visible pt-16 px-4 pl-[4rem] sm:pl-[5rem] md:pl-[8rem] lg:pl-[12rem] md:mr-8 gap-8 mt-8 mb-5 xl:w-[80rem];
+  }
+
+  .swipe-card .content-list {
+    @apply md:relative w-screen h-full flex flex-col max-h-full my-auto mt-16 px-4 pl-[4rem] sm:pl-[5rem] md:pl-[8rem] lg:pl-[12rem] md:mr-8 gap-8 mb-5 xl:w-[80rem];
+  }
+
+  .swipe-card.overlap-card {
+    @apply sm:bg-transparent;
+  }
+
+  .list-1 {
+    @apply p-6 sm:p-8 md:p-12 lg:p-16 top-16 relative;
+  }
+
+  .list-1::before {
+    @apply bg-green-300 absolute inset-0 -z-10 dark:bg-green-800 dark:opacity-40;
+    content: "";
+    clip-path: polygon(0 30%, 40% 0%, 90% 30%, 60% 100%, 20% 100%);
+    rotate: 5deg;
+  }
+
+  .list-2 {
+    @apply p-6 sm:p-8 md:p-12 lg:p-16 bottom-8 relative;
+  }
+
+  .list-2::before {
+    @apply bg-orange-300 absolute inset-0 -z-10 dark:bg-green-800 dark:opacity-40;
+    content: "";
+    clip-path: polygon(
+      20% 100%,
+      0 40%,
+      20% 0%,
+      50% 0%,
+      100% 40%,
+      100% 50%,
+      60% 100%
+    );
+    rotate: -5deg;
+  }
+
+  .list-3 {
+    @apply p-8 md:p-12 lg:p-16 relative text-center;
+  }
+
+  .list-3::before {
+    @apply bg-pink-300 absolute inset-0 -z-10 dark:bg-green-800 dark:opacity-40;
+    content: "";
+    clip-path: polygon(0 30%, 40% 10%, 100% 30%, 90% 80%, 60% 100%, 20% 80%);
+    rotate: 5deg;
   }
 
   section span {
-    @apply -mt-2 -mb-2 font-serif text-7xl lg:text-8xl xl:text-9xl;
+    @apply font-serif absolute bottom-5 right-5 text-7xl lg:text-8xl xl:text-9xl;
   }
 }

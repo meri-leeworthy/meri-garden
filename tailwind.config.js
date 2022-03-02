@@ -6,7 +6,7 @@ module.exports = {
     fontFamily: {
       title: ["Beastly", "sans-serif"],
       serif: ["BluuNext", "serif"],
-      sans: ["WorkSans", "sans-serif"],
+      sans: ["TexGyre", "WorkSans", "sans-serif"],
       mono: ["Space-Mono", "monospace"],
     },
     extend: {},

@@ -28,8 +28,8 @@ export const WithThemes = ({
 
   return (
     <>
+      <div className="theme-header">{renderThemeButton()}</div>
       {children}
-      <div className="theme-footer">{renderThemeButton()}</div>
     </>
   );
 };
