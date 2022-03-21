@@ -46,24 +46,28 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const Blog: NextPage<Props> = ({ posts }) => {
   return (
-    <div className="flex flex-col flex-wrap items-center justify-center w-screen h-screen">
+    <div className="flex flex-col items-start w-screen h-screen">
       <Head>
-        <title>blog - meri.garden</title>
+        <title>writing - meri leeworthy</title>
         <meta name="description" content="Meri Leeworthy as writer." />
       </Head>
-      <header>
-        <h1 className="font-mono text-6xl">meri blog</h1>
+
+      <Link href="/">
+        <a className="back-button">&larr; back</a>
+      </Link>
+
+      <header className="page-title">
+        <h1>writing</h1>
       </header>
-      <main className="flex flex-col justify-start p-12 space-y-8">
+
+      <main className="flex flex-col p-12 space-y-8">
         {posts.map((post) => {
           return (
             <Link key={post.slug} href={`/${post.slug}`}>
               <a className="">
-                <article className="flex max-w-xl space-x-6">
-                  <div className="flex flex-col items-end justify-center flex-shrink-0 w-32">
-                    <h2 className="font-mono text-2xl text-right">
-                      {post.data.title}
-                    </h2>
+                <article className="flex flex-col max-w-xl space-x-6">
+                  <div className="flex justify-between">
+                    <h2 className="font-mono text-2xl">{post.data.title}</h2>
                     <time>{getDate(post.data.publishDate)}</time>
                   </div>
                   <p className="max-w-2xl mt-2 ">

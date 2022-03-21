@@ -1,5 +1,8 @@
 import { useTheme } from "next-themes";
+import Head from "next/head";
+import Link from "next/link";
 import { FiSun, FiMoon } from "react-icons/fi";
+import { useRouter } from "next/router";
 
 export const WithThemes = ({
   children,
@@ -7,8 +10,9 @@ export const WithThemes = ({
   children: JSX.Element | JSX.Element[];
 }) => {
   const { systemTheme, theme, setTheme } = useTheme();
+  const router = useRouter();
+  const currentTheme = theme === "system" ? systemTheme : theme;
   const renderThemeButton = () => {
-    const currentTheme = theme === "system" ? systemTheme : theme;
     if (currentTheme === "dark") {
       return (
         <button onClick={() => setTheme("light")}>
@@ -24,11 +28,74 @@ export const WithThemes = ({
     }
   };
 
-  //children was wrapped in div with min-h-screen flex flex-col items-center justify-start xl:flex-row xl:max-h-screen
+  const renderNav = () => {
+    switch (router.pathname) {
+      case "/":
+        return null;
+      case "/projects":
+        return (
+          <>
+            <Link href="/">
+              <a>CV</a>
+            </Link>
+            /
+            <Link href="/blog">
+              <a>writing</a>
+            </Link>
+            /
+            <Link href="/contact">
+              <a>Contact</a>
+            </Link>
+          </>
+        );
+      case "/blog":
+        return (
+          <>
+            <Link href="/">
+              <a>CV</a>
+            </Link>
+            /
+            <Link href="/projects">
+              <a>projects</a>
+            </Link>
+            /
+            <Link href="/contact">
+              <a>Contact</a>
+            </Link>
+          </>
+        );
+      case "/contact":
+        return (
+          <>
+            <Link href="/">
+              <a>CV</a>
+            </Link>
+            /
+            <Link href="/blog">
+              <a>writing</a>
+            </Link>
+            /
+            <Link href="/projects">
+              <a>projects</a>
+            </Link>
+          </>
+        );
+    }
+  };
 
   return (
     <>
-      <div className="theme-header">{renderThemeButton()}</div>
+      <Head>
+        {currentTheme === "dark" ? (
+          <meta name="theme-color" content="rgb(41 37 36 / 1)" />
+        ) : (
+          <meta name="theme-color" content="white" />
+        )}
+      </Head>
+      <div className="theme-header">
+        <nav>{renderNav()}</nav>
+        {renderThemeButton()}
+      </div>
       {children}
     </>
   );

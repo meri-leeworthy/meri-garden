@@ -1,7 +1,9 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState, useRef, useCallback } from "react";
+import meriPic from "public/images/meri.jpg";
 
 const Home: NextPage = () => {
   const viewportGrid = useRef<HTMLDivElement>(null);
@@ -58,23 +60,42 @@ const Home: NextPage = () => {
         <meta name="description" content="Meri Leeworthy, internet edition." />
         <meta
           name="viewport"
-          content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+          content="viewport-fit=auto, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
       </Head>
       <main className="swipe-container" ref={viewportGrid}>
         <section className="swipe-card-fixed">
-          <h1 className="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-8xl xl:text-9xl">
-            Meri Leeworthy
-          </h1>
-          <p className="mt-4 text-2xl font-bold md:mt-8 md:text-3xl lg:text-4xl xl:text-5xl">
-            🙋🏻‍♀️ Hire me! I am looking for work as a{" "}
-            <strong className="font-bold bg-pink-300 dark:bg-pink-600">
-              frontend web developer.
-            </strong>
-          </p>
-          <p className="mt-4 text-xl md:mt-10 md:text-2xl lg:text-3xl xl:text-4xl text-neutral-700 dark:text-neutral-300">
-            Swipe right for more about me.
-          </p>
+          <div className="absolute -mt-36 sm:mt-0 sm:relative -z-10">
+            <div className="aspect-[3/4] w-40 md:w-60 2xl:w-96 relative">
+              <Image
+                src={meriPic}
+                alt="Selfie of a woman in a green dress sitting in a desk chair and looking slightly upwards"
+                layout="fill"
+                placeholder="blur"
+              />
+            </div>
+          </div>
+          <div className="relative flex flex-col items-start p-2 bg-white bg-opacity-75 dark:bg-stone-800 dark:bg-opacity-60 top-16 sm:top-0">
+            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[12rem]">
+              Meri Leeworthy
+            </h1>
+            <p className="mt-4 text-2xl font-bold md:mt-8 md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
+              🙋🏻‍♀️ Hire me! I am looking for work as a{" "}
+              <strong className="font-bold text-bg-green">
+                frontend web developer.
+              </strong>
+            </p>
+            <p className="mt-4 text-xl md:mt-10 md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-stone-700 dark:text-stone-300">
+              <Link href="">
+                <a className="text-purple-700 dark:text-pink-300">CV</a>
+              </Link>{" "}
+              •{" "}
+              <Link href="https://github.com/meri-leeworthy">
+                <a className="text-pink-700 dark:text-orange-300">Github</a>
+              </Link>{" "}
+              • Swipe right for more about me.
+            </p>
+          </div>
           <span>&rarr;</span>
         </section>
 
@@ -84,7 +105,7 @@ const Home: NextPage = () => {
             <div className="list-1">
               <ul>
                 <li>📚 self-taught programmer</li>
-                <li>🔮 background in art, writing & media</li>
+                <li>🔮 background in art, design & media</li>
                 <li>🏳️‍⚧️ queer trans woman</li>
                 <li>🏕 love camping & nature</li>
               </ul>
@@ -96,16 +117,27 @@ const Home: NextPage = () => {
         <section className="left-0 sm:sticky swipe-card overlap-card">
           <div className="items-center justify-end content-list">
             <div className="list-2">
-              <h3>tech stack</h3>
-              <ul className="list-[square] list-inside w-56 md:w-64 lg:w-80 columns-2">
+              <ul className="list-[square] list-inside w-56 md:w-64 lg:w-80 2xl:w-[36rem] columns-2">
                 <li>Javascript</li>
-                <li>Typescript</li>
+                <li>
+                  <a href="https://www.typescriptlang.org">Typescript</a>
+                </li>
                 <li>CSS</li>
-                <li>GraphQL</li>
-                <li>React</li>
-                <li>Next.js</li>
-                <li>Tailwind</li>
-                <li>Apollo</li>
+                <li>
+                  <a href="https://graphql.org">GraphQL</a>
+                </li>
+                <li>
+                  <a href="https://reactjs.org">React</a>
+                </li>
+                <li>
+                  <a href="https://nextjs.org">Next.js</a>
+                </li>
+                <li>
+                  <a href="https://tailwindcss.com">Tailwind</a>
+                </li>
+                <li>
+                  <a href="https://www.apollographql.com">Apollo</a>
+                </li>
               </ul>
             </div>
           </div>
@@ -115,10 +147,21 @@ const Home: NextPage = () => {
           <div className="items-center justify-center sm:items-end bottom-20 right-16 content-list">
             <div className="list-3">
               <ul>
-                <li>Projects</li>
-                <li>Writing</li>
-                <li>Contact</li>
-                <li>CV</li>
+                <li>
+                  <Link href="/projects">
+                    <a>Projects</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog">
+                    <a>Writing</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact">
+                    <a>Contact</a>
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -136,25 +179,7 @@ const Home: NextPage = () => {
         {/* <section className="swipe-card">
           <div className="content">
             <h2>Radical Directory</h2>
-            <p>
-              The goal of Radical Directory is to build a community-run media
-              platform for social and environmental justice activism.
-            </p>
-            <p>
-              I got involved in May 2020 and took on the role of web developer.
-              Since then I have been working hard to create the highest quality
-              web app possible.
-            </p>
-            <p>
-              Our goal has been to create an incredibly intuitive content
-              creation experience for activists to share their projects,
-              campaigns and events with each other and the world.
-            </p>
-            <p>
-              In the process I have become experienced programming for a modern
-              tech stack, particularly using React, Next.js, Typescript,
-              GraphQL, Apollo, Prisma and Postgres.
-            </p>
+            
             <span>&rarr;</span>
           </div>
         </section>
