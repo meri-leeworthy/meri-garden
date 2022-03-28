@@ -113,13 +113,9 @@ const Blog: NextPage<Props> = ({ posts }) => {
           </p>
           <p>
             I got involved in May 2020 and took on the role of web developer.
-            Since then I have been working hard to create the highest quality
-            web app possible.
-          </p>
-          <p>
-            Our goal has been to create an incredibly intuitive content creation
-            experience for activists to share their projects, campaigns and
-            events with each other and the world.
+            Since then I have been working to create an incredibly intuitive
+            content creation experience for activists to share their projects,
+            campaigns and events with each other and the world.
           </p>
           <p>
             In the process I have become experienced programming for a modern
