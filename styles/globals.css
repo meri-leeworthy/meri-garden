@@ -3,447 +3,420 @@
 @tailwind utilities;
 
 @layer base {
-  @font-face {
-    font-family: "Beastly";
-    src: url("../public/fonts/RubikBeastly-Regular.woff2") format("woff2");
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
-  }
+	@font-face {
+		font-family: "Beastly";
+		src: url("../public/fonts/RubikBeastly-Regular.woff2") format("woff2");
+		font-weight: normal;
+		font-style: normal;
+		font-display: block;
+	}
 
-  @font-face {
-    font-family: "BluuNext";
-    src: url("../public/fonts/bluu-next/BluuNext-Bold.woff") format("woff");
-    font-weight: bold;
-    font-style: normal;
-    font-display: block;
-  }
+	@font-face {
+		font-family: "BluuNext";
+		src: url("../public/fonts/bluu-next/BluuNext-Bold.woff") format("woff");
+		font-weight: bold;
+		font-style: normal;
+		font-display: block;
+	}
 
-  @font-face {
-    font-family: "BluuNext";
-    src: url("../public/fonts/bluu-next/BluuNext-Bolditalic.woff")
-      format("woff");
-    font-weight: bold;
-    font-style: italic;
-    font-display: block;
-  }
+	@font-face {
+		font-family: "BluuNext";
+		src: url("../public/fonts/bluu-next/BluuNext-Bolditalic.woff") format("woff");
+		font-weight: bold;
+		font-style: italic;
+		font-display: block;
+	}
 
-  @font-face {
-    font-family: "WorkSans";
-    src: url("../public/fonts/worksans/WorkSans-Black.woff") format("woff");
-    font-weight: 900;
-    font-style: normal;
-    font-display: block;
-  }
+	@font-face {
+		font-family: "WorkSans";
+		src: url("../public/fonts/worksans/WorkSans-Black.woff") format("woff");
+		font-weight: 900;
+		font-style: normal;
+		font-display: block;
+	}
 
-  @font-face {
-    font-family: "WorkSans";
-    src: url("../public/fonts/worksans/WorkSans-BlackItalic.woff")
-      format("woff");
-    font-weight: 900;
-    font-style: italic;
-    font-display: block;
-  }
+	@font-face {
+		font-family: "WorkSans";
+		src: url("../public/fonts/worksans/WorkSans-BlackItalic.woff") format("woff");
+		font-weight: 900;
+		font-style: italic;
+		font-display: block;
+	}
 
-  @font-face {
-    font-family: "WorkSans";
-    src: url("../public/fonts/worksans/WorkSans-Bold.woff") format("woff");
-    font-weight: bold;
-    font-style: normal;
-    font-display: block;
-  }
+	@font-face {
+		font-family: "WorkSans";
+		src: url("../public/fonts/worksans/WorkSans-Bold.woff") format("woff");
+		font-weight: bold;
+		font-style: normal;
+		font-display: block;
+	}
 
-  @font-face {
-    font-family: "WorkSans";
-    src: url("../public/fonts/worksans/WorkSans-Italic.woff") format("woff");
-    font-weight: normal;
-    font-style: italic;
-    font-display: block;
-  }
+	@font-face {
+		font-family: "WorkSans";
+		src: url("../public/fonts/worksans/WorkSans-Italic.woff") format("woff");
+		font-weight: normal;
+		font-style: italic;
+		font-display: block;
+	}
 
-  @font-face {
-    font-family: "WorkSans";
-    src: url("../public/fonts/worksans/WorkSans-LightItalic.woff")
-      format("woff");
-    font-weight: 300;
-    font-style: italic;
-    font-display: block;
-  }
+	@font-face {
+		font-family: "WorkSans";
+		src: url("../public/fonts/worksans/WorkSans-LightItalic.woff") format("woff");
+		font-weight: 300;
+		font-style: italic;
+		font-display: block;
+	}
 
-  @font-face {
-    font-family: "WorkSans";
-    src: url("../public/fonts/worksans/WorkSans-Light.woff") format("woff");
-    font-weight: 300;
-    font-style: normal;
-    font-display: block;
-  }
+	@font-face {
+		font-family: "WorkSans";
+		src: url("../public/fonts/worksans/WorkSans-Light.woff") format("woff");
+		font-weight: 300;
+		font-style: normal;
+		font-display: block;
+	}
 
-  @font-face {
-    font-family: "WorkSans";
-    src: url("../public/fonts/worksans/WorkSans-BoldItalic.woff") format("woff");
-    font-weight: bold;
-    font-style: italic;
-    font-display: block;
-  }
+	@font-face {
+		font-family: "WorkSans";
+		src: url("../public/fonts/worksans/WorkSans-BoldItalic.woff") format("woff");
+		font-weight: bold;
+		font-style: italic;
+		font-display: block;
+	}
 
-  @font-face {
-    font-family: "WorkSans";
-    src: url("../public/fonts/worksans/WorkSans-ExtraLight.woff") format("woff");
-    font-weight: 300;
-    font-style: normal;
-    font-display: block;
-  }
+	@font-face {
+		font-family: "WorkSans";
+		src: url("../public/fonts/worksans/WorkSans-ExtraLight.woff") format("woff");
+		font-weight: 300;
+		font-style: normal;
+		font-display: block;
+	}
 
-  @font-face {
-    font-family: "WorkSans";
-    src: url("../public/fonts/worksans/WorkSans-Medium.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
-  }
+	@font-face {
+		font-family: "WorkSans";
+		src: url("../public/fonts/worksans/WorkSans-Medium.woff") format("woff");
+		font-weight: normal;
+		font-style: normal;
+		font-display: block;
+	}
 
-  @font-face {
-    font-family: "WorkSans";
-    src: url("../public/fonts/worksans/WorkSans-ExtraLightItalic.woff")
-      format("woff");
-    font-weight: 300;
-    font-style: italic;
-    font-display: block;
-  }
+	@font-face {
+		font-family: "WorkSans";
+		src: url("../public/fonts/worksans/WorkSans-ExtraLightItalic.woff") format("woff");
+		font-weight: 300;
+		font-style: italic;
+		font-display: block;
+	}
 
-  @font-face {
-    font-family: "Space-Mono";
-    src: url("../public/fonts/space-mono/SpaceMono-Regular.woff2")
-      format("woff2");
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
-  }
+	@font-face {
+		font-family: "Space-Mono";
+		src: url("../public/fonts/space-mono/SpaceMono-Regular.woff2") format("woff2");
+		font-weight: normal;
+		font-style: normal;
+		font-display: block;
+	}
 
-  @font-face {
-    font-family: "Space-Mono";
-    src: url("../public/fonts/space-mono/SpaceMono-Bold.woff2") format("woff2");
-    font-weight: bold;
-    font-style: normal;
-    font-display: block;
-  }
+	@font-face {
+		font-family: "Space-Mono";
+		src: url("../public/fonts/space-mono/SpaceMono-Bold.woff2") format("woff2");
+		font-weight: bold;
+		font-style: normal;
+		font-display: block;
+	}
 
-  @font-face {
-    font-family: "Space-Mono";
-    src: url("../public/fonts/space-mono/SpaceMono-Italic.woff2")
-      format("woff2");
-    font-weight: normal;
-    font-style: italic;
-    font-display: block;
-  }
+	@font-face {
+		font-family: "Space-Mono";
+		src: url("../public/fonts/space-mono/SpaceMono-Italic.woff2") format("woff2");
+		font-weight: normal;
+		font-style: italic;
+		font-display: block;
+	}
 
-  @font-face {
-    font-family: "Space-Mono";
-    src: url("../public/fonts/space-mono/SpaceMono-BoldItalic.woff2")
-      format("woff2");
-    font-weight: bold;
-    font-style: italic;
-    font-display: block;
-  }
+	@font-face {
+		font-family: "Space-Mono";
+		src: url("../public/fonts/space-mono/SpaceMono-BoldItalic.woff2") format("woff2");
+		font-weight: bold;
+		font-style: italic;
+		font-display: block;
+	}
 
-  @font-face {
-    font-family: "Junicode";
-    src: url("../public/fonts/junicode-boldcondensed-webfont.woff")
-      format("woff");
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
-  }
+	@font-face {
+		font-family: "Junicode";
+		src: url("../public/fonts/junicode-boldcondensed-webfont.woff") format("woff");
+		font-weight: normal;
+		font-style: normal;
+		font-display: block;
+	}
 
-  /* these are for tex gyre */
+	/* these are for tex gyre */
 
-  @font-face {
-    font-family: "TexGyre";
-    src: url("../public/fonts/tex-gyre/texgyreheroscn-bold.woff") format("woff");
-    font-weight: bold;
-    font-style: normal;
-    font-display: block;
-  }
+	@font-face {
+		font-family: "TexGyre";
+		src: url("../public/fonts/tex-gyre/texgyreheroscn-bold.woff") format("woff");
+		font-weight: bold;
+		font-style: normal;
+		font-display: block;
+	}
 
-  @font-face {
-    font-family: "TexGyre";
-    src: url("../public/fonts/tex-gyre/texgyreheroscn-italic.woff")
-      format("woff");
-    font-weight: normal;
-    font-style: italic;
-    font-display: block;
-  }
+	@font-face {
+		font-family: "TexGyre";
+		src: url("../public/fonts/tex-gyre/texgyreheroscn-italic.woff") format("woff");
+		font-weight: normal;
+		font-style: italic;
+		font-display: block;
+	}
 
-  @font-face {
-    font-family: "TexGyre";
-    src: url("../public/fonts/tex-gyre/texgyreheroscn-bolditalic.woff")
-      format("woff");
-    font-weight: bold;
-    font-style: italic;
-    font-display: block;
-  }
+	@font-face {
+		font-family: "TexGyre";
+		src: url("../public/fonts/tex-gyre/texgyreheroscn-bolditalic.woff") format("woff");
+		font-weight: bold;
+		font-style: italic;
+		font-display: block;
+	}
 
-  @font-face {
-    font-family: "TexGyre";
-    src: url("../public/fonts/tex-gyre/texgyreheroscn-regular.woff")
-      format("woff");
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
-  }
+	@font-face {
+		font-family: "TexGyre";
+		src: url("../public/fonts/tex-gyre/texgyreheroscn-regular.woff") format("woff");
+		font-weight: normal;
+		font-style: normal;
+		font-display: block;
+	}
 }
 
 @layer components {
-  body {
-    @apply selection:bg-green-300 dark:selection:bg-green-600 dark:selection:bg-opacity-100;
-  }
+	body {
+		@apply selection:bg-green-300 dark:selection:bg-green-600 dark:selection:bg-opacity-100;
+	}
 
-  .theme-header {
-    @apply absolute top-0 flex justify-end items-center w-full px-5 z-10;
-    /* bottom: env(safe-area-inset-bottom); */
-    button {
-      @apply p-2 mt-4 text-xl -z-10 border rounded-full border-stone-400 hover:border-stone-800 dark:border-white bg-white dark:bg-stone-800;
-    }
+	.theme-header {
+		@apply absolute top-0 flex justify-end items-center w-full px-5 z-10;
+		/* bottom: env(safe-area-inset-bottom); */
+		button {
+			@apply p-2 mt-4 text-xl -z-10 border rounded-full border-stone-400 hover:border-stone-800 dark:border-white bg-white dark:bg-stone-800;
+		}
 
-    nav {
-      @apply mt-4 mx-2;
-    }
+		nav {
+			@apply mt-4 mx-2;
+		}
 
-    a {
-      @apply uppercase mx-2 text-stone-600 dark:text-stone-300 hover:text-violet-400;
-    }
-  }
+		a {
+			@apply uppercase mx-2 text-stone-600 dark:text-stone-300 hover:text-violet-400;
+		}
+	}
 
-  article.document {
-    @apply space-y-4 max-w-2xl w-full;
-    a {
-      @apply text-blue-600 underline;
-    }
+	article.document {
+		@apply space-y-4 max-w-2xl w-full;
+		a {
+			@apply text-blue-600 underline;
+		}
 
-    ol li {
-      @apply list-decimal list-inside;
-    }
+		ol li {
+			@apply list-decimal list-inside;
+		}
 
-    code {
-      font-variant-ligatures: none;
-    }
-  }
+		code {
+			font-variant-ligatures: none;
+		}
+	}
 
-  h1.slate-h1 {
-    @apply mt-2 border border-white;
-  }
+	h1.slate-h1 {
+		@apply mt-2 border border-white;
+	}
 
-  .no-focus-ring-inside div {
-    @apply focus:outline-none;
-  }
+	.no-focus-ring-inside div {
+		@apply focus:outline-none;
+	}
 
-  .tiptap-toolbar button {
-    @apply border border-black rounded-lg mr-4 px-2 my-1;
-  }
+	.tiptap-toolbar button {
+		@apply border border-black rounded-lg mr-4 px-2 my-1;
+	}
 
-  .viewport-container {
-    /* @apply border-4 border-green-400; */
-    height: calc(var(--vh, 1vh) * 100);
-    max-height: calc(var(--vh, 1vh) * 100);
-  }
+	.viewport-container {
+		/* @apply border-4 border-green-400; */
+		height: calc(var(--vh, 1vh) * 100);
+		max-height: calc(var(--vh, 1vh) * 100);
+	}
 
-  .swipe-container {
-    @apply flex w-screen h-full min-w-full overflow-x-scroll overflow-y-hidden snap-x snap-mandatory scroll-smooth;
-  }
+	.swipe-container {
+		@apply flex w-screen h-full min-w-full overflow-x-scroll overflow-y-hidden snap-x snap-mandatory scroll-smooth;
+	}
 
-  @supports (padding: max(0px)) {
-    .side-safe-insets {
-      padding-left: min(0vmin, env(safe-area-inset-left));
-      padding-right: min(0vmin, env(safe-area-inset-right));
-    }
-  }
+	@supports (padding: max(0px)) {
+		.side-safe-insets {
+			padding-left: min(0vmin, env(safe-area-inset-left));
+			padding-right: min(0vmin, env(safe-area-inset-right));
+		}
+	}
 
-  .swipe-card-fixed {
-    @apply flex relative side-safe-insets h-full items-center w-screen min-w-full px-8 2xl:px-16 snap-start snap-always space-x-8 2xl:space-x-16;
-  }
+	.swipe-card-fixed {
+		@apply flex relative side-safe-insets h-full items-center w-screen min-w-full px-8 2xl:px-16 snap-start snap-always space-x-8 2xl:space-x-16;
+	}
 
-  .swipe-card {
-    @apply relative -mr-24 sm:mr-0 flex items-end w-screen min-w-full h-full max-h-full snap-start snap-always z-10;
-    pointer-events: none;
+	.swipe-card {
+		@apply relative -mr-24 sm:mr-0 flex items-end w-screen min-w-full h-full max-h-full snap-start snap-always z-10;
+		pointer-events: none;
 
-    h2 {
-      @apply absolute w-0 h-0 left-2 md:left-8 z-50 bottom-5 text-left font-serif text-5xl xl:text-6xl 2xl:text-8xl whitespace-nowrap italic md:text-6xl -rotate-90;
-    }
+		h2 {
+			@apply absolute w-0 h-0 left-2 md:left-8 z-50 bottom-5 text-left font-serif text-5xl xl:text-6xl 2xl:text-8xl whitespace-nowrap italic md:text-6xl -rotate-90;
+		}
 
-    h3 {
-      @apply text-xl text-center pb-2 font-bold uppercase tracking-widest;
-    }
+		h3 {
+			@apply text-xl text-center pb-2 font-bold uppercase tracking-widest;
+		}
 
-    p {
-      @apply text-lg md:text-2xl xl:text-3xl pb-4;
-    }
+		p {
+			@apply text-lg md:text-2xl xl:text-3xl pb-4;
+		}
 
-    ul {
-      @apply text-xl md:text-2xl xl:text-3xl 2xl:text-5xl space-y-4 2xl:space-y-8 text-stone-700 dark:text-white;
-    }
+		ul {
+			@apply text-xl md:text-2xl xl:text-3xl 2xl:text-5xl space-y-4 2xl:space-y-8 text-stone-700 dark:text-white;
+		}
 
-    a {
-      @apply underline underline-offset-4 hover:decoration-dashed;
-    }
+		a {
+			@apply underline underline-offset-4 hover:decoration-dashed;
+		}
 
-    .content {
-      @apply h-full max-h-full my-auto columns-1 md:columns-2 xl:columns-3 overflow-y-scroll md:overflow-y-visible pt-16 px-4 pl-[4rem] sm:pl-[5rem] md:pl-[8rem] lg:pl-[12rem] md:mr-8 gap-8 mt-8 mb-5 xl:w-[80rem];
-    }
+		.content {
+			@apply h-full max-h-full my-auto columns-1 md:columns-2 xl:columns-3 overflow-y-scroll md:overflow-y-visible pt-16 px-4 pl-[4rem] sm:pl-[5rem] md:pl-[8rem] lg:pl-[12rem] md:mr-8 gap-8 mt-8 mb-5 xl:w-[80rem];
+		}
 
-    .content-list {
-      @apply md:relative w-screen min-w-full h-full flex flex-col max-h-full my-auto mt-16 px-4 pl-[4rem] sm:pl-[5rem] md:pl-[8rem] lg:pl-[12rem] md:mr-8 gap-8 mb-5 xl:w-[80rem] z-10;
-    }
-  }
+		.content-list {
+			@apply md:relative w-screen min-w-full h-full flex flex-col max-h-full my-auto mt-16 px-4 pl-[4rem] sm:pl-[5rem] md:pl-[8rem] lg:pl-[12rem] md:mr-8 gap-8 mb-5 xl:w-[80rem] z-10;
+		}
+	}
 
-  .swipe-card.overlap-card {
-    @apply sm:bg-transparent;
-  }
+	.swipe-card.overlap-card {
+		@apply sm:bg-transparent;
+	}
 
-  .text-bg-green {
-    /* @apply bg-green-300 dark:bg-green-600; */
-    background-image: linear-gradient(
-      to bottom,
-      transparent,
-      transparent 20%,
-      rgb(134 239 172 / 1) 17%,
-      rgb(134 239 172 / 1)
-    );
-    .dark & {
-      /* @apply bg-green-300 dark:bg-green-600; */
-      background-image: linear-gradient(
-        to bottom,
-        transparent,
-        transparent 20%,
-        rgb(22 163 74 / 1) 17%,
-        rgb(22 163 74 / 1)
-      );
-    }
-  }
+	.text-bg-green {
+		/* @apply bg-green-300 dark:bg-green-600; */
+		background-image: linear-gradient(
+			to bottom,
+			transparent,
+			transparent 20%,
+			rgb(134 239 172 / 1) 17%,
+			rgb(134 239 172 / 1)
+		);
+		.dark & {
+			/* @apply bg-green-300 dark:bg-green-600; */
+			background-image: linear-gradient(
+				to bottom,
+				transparent,
+				transparent 20%,
+				rgb(22 163 74 / 1) 17%,
+				rgb(22 163 74 / 1)
+			);
+		}
+	}
 
-  .page-title {
-    @apply font-serif text-6xl self-center relative m-8;
-    &::before {
-      @apply bg-green-300 absolute inset-0 -z-10 dark:bg-green-700 dark:opacity-100;
-      content: "";
-      clip-path: polygon(0 30%, 40% 0%, 90% 30%, 60% 100%, 20% 100%);
-      rotate: 5deg;
-    }
-  }
+	.page-title {
+		@apply font-serif text-6xl self-center relative m-8;
+		&::before {
+			@apply bg-green-300 absolute inset-0 -z-10 dark:bg-green-700 dark:opacity-100;
+			content: "";
+			clip-path: polygon(0 30%, 40% 0%, 90% 30%, 60% 100%, 20% 100%);
+			rotate: 5deg;
+		}
+	}
 
-  .back-button {
-    @apply font-serif text-2xl relative m-8;
-    &::before {
-      @apply bg-orange-300 absolute inset-0 -z-10 dark:bg-blue-700 dark:opacity-100;
-      content: "";
-      clip-path: polygon(
-        20% 100%,
-        0 40%,
-        20% 0%,
-        50% 0%,
-        100% 40%,
-        100% 50%,
-        60% 100%
-      );
-      rotate: -5deg;
-    }
-  }
+	.back-button {
+		@apply font-serif text-2xl relative m-8;
+		&::before {
+			@apply bg-orange-300 absolute inset-0 -z-10 dark:bg-blue-700 dark:opacity-100;
+			content: "";
+			clip-path: polygon(20% 100%, 0 40%, 20% 0%, 50% 0%, 100% 40%, 100% 50%, 60% 100%);
+			rotate: -5deg;
+		}
+	}
 
-  .list-1 {
-    @apply p-6 sm:p-8 md:p-12 lg:p-16 2xl:p-24 top-16 relative;
-    pointer-events: auto;
-    &::before {
-      @apply bg-green-300 absolute inset-0 -z-10 dark:bg-green-700;
-      content: "";
-      clip-path: polygon(0 30%, 40% 0%, 90% 30%, 60% 100%, 20% 100%);
-      rotate: 5deg;
-    }
-  }
+	.list-1 {
+		@apply p-6 sm:p-8 md:p-12 lg:p-16 2xl:p-24 top-16 relative;
+		pointer-events: auto;
+		&::before {
+			@apply bg-green-300 absolute inset-0 -z-10 dark:bg-green-700;
+			content: "";
+			clip-path: polygon(0 30%, 40% 0%, 90% 30%, 60% 100%, 20% 100%);
+			rotate: 5deg;
+		}
+	}
 
-  .list-2 {
-    @apply p-6 sm:p-8 md:p-12 lg:p-16 2xl:p-24 bottom-8 relative z-50;
-    pointer-events: auto;
-    a {
-      @apply decoration-orange-400 dark:decoration-blue-800;
-    }
+	.list-2 {
+		@apply p-6 sm:p-8 md:p-12 lg:p-16 2xl:p-24 bottom-8 relative z-50;
+		pointer-events: auto;
+		a {
+			@apply decoration-orange-400 dark:decoration-blue-800;
+		}
 
-    &::before {
-      @apply bg-orange-300 absolute inset-0 -z-10 dark:bg-blue-700;
-      content: "";
-      clip-path: polygon(
-        20% 100%,
-        0 40%,
-        20% 0%,
-        50% 0%,
-        100% 40%,
-        100% 50%,
-        60% 100%
-      );
-      rotate: -5deg;
-    }
-  }
+		&::before {
+			@apply bg-orange-300 absolute inset-0 -z-10 dark:bg-blue-700;
+			content: "";
+			clip-path: polygon(20% 100%, 0 40%, 20% 0%, 50% 0%, 100% 40%, 100% 50%, 60% 100%);
+			rotate: -5deg;
+		}
+	}
 
-  .list-3 {
-    @apply p-8 md:p-12 lg:p-16 2xl:p-24 relative text-center;
-    pointer-events: auto;
+	.list-3 {
+		@apply p-8 md:p-12 lg:p-16 2xl:p-24 relative text-center;
+		pointer-events: auto;
 
-    a {
-      @apply decoration-pink-400 dark:decoration-pink-800;
-    }
+		a {
+			@apply decoration-pink-400 dark:decoration-pink-800;
+		}
 
-    &::before {
-      @apply bg-pink-300 absolute inset-0 -z-10 dark:bg-pink-600;
-      content: "";
-      clip-path: polygon(0 30%, 40% 10%, 100% 30%, 90% 80%, 60% 100%, 20% 80%);
-      rotate: 5deg;
-    }
-  }
+		&::before {
+			@apply bg-pink-300 absolute inset-0 -z-10 dark:bg-pink-600;
+			content: "";
+			clip-path: polygon(0 30%, 40% 10%, 100% 30%, 90% 80%, 60% 100%, 20% 80%);
+			rotate: 5deg;
+		}
+	}
 
-  section span {
-    @apply font-serif absolute bottom-5 right-5 text-7xl lg:text-8xl xl:text-9xl;
-  }
+	section span {
+		@apply font-serif absolute bottom-5 right-5 text-7xl lg:text-8xl xl:text-9xl;
+	}
 
-  .projects {
-    @apply flex flex-col items-start w-screen h-screen;
+	.projects {
+		@apply flex flex-col items-start w-screen h-screen;
 
-    section {
-      @apply w-screen p-20 border-b-2 border-dashed border-stone-500 dark:border-stone-200;
-    }
+		section {
+			@apply w-screen p-20 border-b-2 border-dashed border-stone-500 dark:border-stone-200;
+		}
 
-    h2 {
-      @apply font-serif text-8xl;
-    }
+		h2 {
+			@apply font-serif text-8xl;
+		}
 
-    p {
-      @apply text-xl py-2;
-    }
+		p {
+			@apply text-xl py-2;
+		}
 
-    .project-description {
-      @apply md:columns-2 max-h-[30rem] gap-12 md:w-4/5 2xl:w-2/5 my-8;
-    }
+		.project-description {
+			@apply md:columns-2 max-h-[30rem] gap-12 md:w-4/5 2xl:w-2/5 my-8;
+		}
 
-    .posts-container {
-      @apply flex py-4 grow-0 space-x-4 overflow-x-scroll;
-    }
+		.posts-container {
+			@apply flex py-4 grow-0 space-x-4 overflow-x-scroll;
+		}
 
-    .post-card {
-      @apply border-2 dark:border-stone-500 hover:border-pink-300 hover:text-pink-600 dark:hover:text-pink-300 transition-colors dark:hover:border-pink-300 w-40 xl:w-96 2xl:w-[35rem] p-4 box-content;
+		.post-card {
+			@apply border-2 dark:border-stone-500 hover:border-pink-300 hover:text-pink-600 dark:hover:text-pink-300 transition-colors dark:hover:border-pink-300 w-40 md:w-72 xl:w-96 2xl:w-[35rem] p-4 box-content;
 
-      img {
-        mask-image: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 1) 0%,
-          rgba(0, 0, 0, 1) 40%,
-          rgba(0, 0, 0, 0) 100%
-        );
-      }
+			img {
+				mask-image: linear-gradient(
+					to bottom,
+					rgba(0, 0, 0, 1) 0%,
+					rgba(0, 0, 0, 1) 40%,
+					rgba(0, 0, 0, 0) 100%
+				);
+			}
 
-      h3 {
-        @apply font-bold text-lg md:text-2xl xl:text-3xl absolute bottom-0;
-      }
+			h3 {
+				@apply font-bold text-lg md:text-2xl xl:text-3xl absolute bottom-0;
+			}
 
-      p {
-        @apply text-lg md:text-xl xl:text-xl overflow-y-hidden;
-      }
-    }
-  }
+			p {
+				@apply text-lg md:text-xl xl:text-xl overflow-y-hidden;
+			}
+		}
+	}
 }
