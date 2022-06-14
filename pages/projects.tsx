@@ -56,7 +56,7 @@ const renderPosts = (posts: Post[], tag: string) => {
 					<a>
 						<article className="post-card">
 							<div className="relative">
-								<div className="relative aspect-[16/9] w-40 md:w-72 xl:w-96 2xl:w-[35rem]">
+								<div className="image-container">
 									<Image src={`/images/${post.data.image}`} alt={post.data.alt} layout="fill" />
 								</div>
 								<h3>{post.data.title}</h3>

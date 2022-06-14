@@ -188,23 +188,23 @@
 	}
 
 	.theme-header {
-		@apply absolute top-0 flex justify-end items-center w-full px-5 z-10;
+		@apply absolute top-0 z-10 flex items-center justify-end w-full px-5;
 		/* bottom: env(safe-area-inset-bottom); */
 		button {
-			@apply p-2 mt-4 text-xl -z-10 border rounded-full border-stone-400 hover:border-stone-800 dark:border-white bg-white dark:bg-stone-800;
+			@apply p-2 mt-4 text-xl bg-white border rounded-full -z-10 border-stone-400 hover:border-stone-800 dark:border-white dark:bg-stone-800;
 		}
 
 		nav {
-			@apply mt-4 mx-2;
+			@apply mx-2 mt-4;
 		}
 
 		a {
-			@apply uppercase mx-2 text-stone-600 dark:text-stone-300 hover:text-violet-400;
+			@apply mx-2 uppercase text-stone-600 dark:text-stone-300 hover:text-violet-400;
 		}
 	}
 
 	article.document {
-		@apply space-y-4 max-w-2xl w-full;
+		@apply w-full max-w-2xl space-y-4;
 		a {
 			@apply text-blue-600 underline;
 		}
@@ -227,7 +227,7 @@
 	}
 
 	.tiptap-toolbar button {
-		@apply border border-black rounded-lg mr-4 px-2 my-1;
+		@apply px-2 my-1 mr-4 border border-black rounded-lg;
 	}
 
 	.viewport-container {
@@ -248,23 +248,23 @@
 	}
 
 	.swipe-card-fixed {
-		@apply flex relative side-safe-insets h-full items-center w-screen min-w-full px-8 2xl:px-16 snap-start snap-always space-x-8 2xl:space-x-16;
+		@apply relative flex items-center w-screen h-full min-w-full px-8 side-safe-insets 2xl:px-16 snap-start snap-always space-x-8 2xl:space-x-16;
 	}
 
 	.swipe-card {
-		@apply relative -mr-24 sm:mr-0 flex items-end w-screen min-w-full h-full max-h-full snap-start snap-always z-10;
+		@apply relative z-10 flex items-end w-screen h-full max-h-full min-w-full -mr-24 sm:mr-0 snap-start snap-always;
 		pointer-events: none;
 
 		h2 {
-			@apply absolute w-0 h-0 left-2 md:left-8 z-50 bottom-5 text-left font-serif text-5xl xl:text-6xl 2xl:text-8xl whitespace-nowrap italic md:text-6xl -rotate-90;
+			@apply absolute z-50 w-0 h-0 font-serif text-5xl italic text-left left-2 md:left-8 bottom-5 xl:text-6xl 2xl:text-8xl whitespace-nowrap md:text-6xl -rotate-90;
 		}
 
 		h3 {
-			@apply text-xl text-center pb-2 font-bold uppercase tracking-widest;
+			@apply pb-2 text-xl font-bold tracking-widest text-center uppercase;
 		}
 
 		p {
-			@apply text-lg md:text-2xl xl:text-3xl pb-4;
+			@apply pb-4 text-lg md:text-2xl xl:text-3xl;
 		}
 
 		ul {
@@ -310,9 +310,9 @@
 	}
 
 	.page-title {
-		@apply font-serif text-6xl self-center relative m-8;
+		@apply relative self-center m-8 font-serif text-6xl;
 		&::before {
-			@apply bg-green-300 absolute inset-0 -z-10 dark:bg-green-700 dark:opacity-100;
+			@apply absolute inset-0 bg-green-300 -z-10 dark:bg-green-700 dark:opacity-100;
 			content: "";
 			clip-path: polygon(0 30%, 40% 0%, 90% 30%, 60% 100%, 20% 100%);
 			rotate: 5deg;
@@ -320,9 +320,9 @@
 	}
 
 	.back-button {
-		@apply font-serif text-2xl relative m-8;
+		@apply relative m-8 font-serif text-2xl;
 		&::before {
-			@apply bg-orange-300 absolute inset-0 -z-10 dark:bg-blue-700 dark:opacity-100;
+			@apply absolute inset-0 bg-orange-300 -z-10 dark:bg-blue-700 dark:opacity-100;
 			content: "";
 			clip-path: polygon(20% 100%, 0 40%, 20% 0%, 50% 0%, 100% 40%, 100% 50%, 60% 100%);
 			rotate: -5deg;
@@ -330,10 +330,10 @@
 	}
 
 	.list-1 {
-		@apply p-6 sm:p-8 md:p-12 lg:p-16 2xl:p-24 top-16 relative;
+		@apply relative p-6 sm:p-8 md:p-12 lg:p-16 2xl:p-24 top-16;
 		pointer-events: auto;
 		&::before {
-			@apply bg-green-300 absolute inset-0 -z-10 dark:bg-green-700;
+			@apply absolute inset-0 bg-green-300 -z-10 dark:bg-green-700;
 			content: "";
 			clip-path: polygon(0 30%, 40% 0%, 90% 30%, 60% 100%, 20% 100%);
 			rotate: 5deg;
@@ -341,14 +341,14 @@
 	}
 
 	.list-2 {
-		@apply p-6 sm:p-8 md:p-12 lg:p-16 2xl:p-24 bottom-8 relative z-50;
+		@apply relative z-50 p-6 sm:p-8 md:p-12 lg:p-16 2xl:p-24 bottom-8;
 		pointer-events: auto;
 		a {
 			@apply decoration-orange-400 dark:decoration-blue-800;
 		}
 
 		&::before {
-			@apply bg-orange-300 absolute inset-0 -z-10 dark:bg-blue-700;
+			@apply absolute inset-0 bg-orange-300 -z-10 dark:bg-blue-700;
 			content: "";
 			clip-path: polygon(20% 100%, 0 40%, 20% 0%, 50% 0%, 100% 40%, 100% 50%, 60% 100%);
 			rotate: -5deg;
@@ -356,7 +356,7 @@
 	}
 
 	.list-3 {
-		@apply p-8 md:p-12 lg:p-16 2xl:p-24 relative text-center;
+		@apply relative p-8 text-center md:p-12 lg:p-16 2xl:p-24;
 		pointer-events: auto;
 
 		a {
@@ -364,7 +364,7 @@
 		}
 
 		&::before {
-			@apply bg-pink-300 absolute inset-0 -z-10 dark:bg-pink-600;
+			@apply absolute inset-0 bg-pink-300 -z-10 dark:bg-pink-600;
 			content: "";
 			clip-path: polygon(0 30%, 40% 10%, 100% 30%, 90% 80%, 60% 100%, 20% 80%);
 			rotate: 5deg;
@@ -372,7 +372,7 @@
 	}
 
 	section span {
-		@apply font-serif absolute bottom-5 right-5 text-7xl lg:text-8xl xl:text-9xl;
+		@apply absolute font-serif bottom-5 right-5 text-7xl lg:text-8xl xl:text-9xl;
 	}
 
 	.projects {
@@ -387,7 +387,7 @@
 		}
 
 		p {
-			@apply text-xl py-2;
+			@apply py-2 text-xl;
 		}
 
 		.project-description {
@@ -395,11 +395,15 @@
 		}
 
 		.posts-container {
-			@apply flex py-4 grow-0 space-x-4 overflow-x-scroll;
+			@apply flex py-4 overflow-x-scroll grow-0 space-x-4;
 		}
 
 		.post-card {
 			@apply border-2 dark:border-stone-500 hover:border-pink-300 hover:text-pink-600 dark:hover:text-pink-300 transition-colors dark:hover:border-pink-300 w-40 md:w-72 xl:w-96 2xl:w-[35rem] p-4 box-content;
+
+			.image-container {
+				@apply relative aspect-[16/9] w-40 md:w-72 xl:w-96 2xl:w-[35rem];
+			}
 
 			img {
 				mask-image: linear-gradient(
@@ -411,11 +415,11 @@
 			}
 
 			h3 {
-				@apply font-bold text-lg md:text-2xl xl:text-3xl absolute bottom-0;
+				@apply absolute bottom-0 text-lg font-bold md:text-2xl xl:text-3xl;
 			}
 
 			p {
-				@apply text-lg md:text-xl xl:text-xl overflow-y-hidden;
+				@apply overflow-y-hidden text-lg md:text-xl xl:text-xl;
 			}
 		}
 	}
