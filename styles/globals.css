@@ -405,17 +405,8 @@
 				@apply relative aspect-[16/9] w-40 md:w-72 xl:w-96 2xl:w-[35rem];
 			}
 
-			img {
-				mask-image: linear-gradient(
-					to bottom,
-					rgba(0, 0, 0, 1) 0%,
-					rgba(0, 0, 0, 1) 40%,
-					rgba(0, 0, 0, 0) 100%
-				);
-			}
-
 			h3 {
-				@apply absolute bottom-0 text-lg font-bold md:text-2xl xl:text-3xl;
+				@apply pt-2 text-lg font-bold md:text-2xl xl:text-3xl;
 			}
 
 			p {
