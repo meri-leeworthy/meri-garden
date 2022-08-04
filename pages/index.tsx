@@ -8,39 +8,6 @@ import meriPic from "public/images/meri.jpg";
 const Home: NextPage = () => {
   const viewportGrid = useRef<HTMLDivElement>(null);
 
-  // //set scroll position to the central box of the 9x9 grid of viewport-boxes
-  // const scrollReset = () =>
-  //   viewportGrid.current &&
-  //   viewportGrid.current.scrollTo(window.innerWidth, window.innerHeight);
-
-  // //scrolling both X and Y is only permitted if scroll position is on the central viewport-box
-  // const onScroll = useCallback(() => {
-  //   setScrollable(
-  //     viewportGrid.current?.scrollTop !== window.innerHeight &&
-  //       window.innerWidth > 640
-  //       ? "Y"
-  //       : viewportGrid.current?.scrollLeft !== window.innerWidth ||
-  //         window.innerWidth < 640
-  //       ? "X"
-  //       : "XY"
-  //   );
-  //   if (
-  //     viewportGrid.current?.scrollTop !== window.innerHeight &&
-  //     viewportGrid.current?.scrollLeft !== window.innerWidth
-  //   ) {
-  //     scrollReset();
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   scrollReset();
-
-  //   viewportGrid.current &&
-  //     viewportGrid.current.addEventListener("scroll", onScroll);
-  // }, [onScroll]);
-
-  // const [scrollable, setScrollable] = useState<ScrollDirection>("XY");
-
   useEffect(() => {
     if (!window || !document) return;
     let vh = window.innerHeight * 0.01;
@@ -86,8 +53,8 @@ const Home: NextPage = () => {
               </strong>
             </p>
             <p className="mt-4 text-xl md:mt-10 md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-stone-700 dark:text-stone-300">
-              <Link href="">
-                <a className="text-purple-700 dark:text-pink-300">CV</a>
+              <Link href="/resume.pdf">
+                <a className="text-purple-700 dark:text-pink-300">Resume</a>
               </Link>{" "}
               •{" "}
               <Link href="https://github.com/meri-leeworthy">
