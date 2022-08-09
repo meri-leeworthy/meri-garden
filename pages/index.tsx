@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useRef } from "react";
 import meriPic from "public/images/meri.jpg";
 
 const Home: NextPage = () => {
