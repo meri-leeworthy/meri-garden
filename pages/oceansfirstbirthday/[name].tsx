@@ -7,6 +7,7 @@ import ocean3 from "public/images/ocean3.png";
 import oceanH1 from "public/images/oceanH1.svg";
 import oceanH2 from "public/images/oceanH2.svg";
 import { useState, useEffect } from "react";
+import Head from "next/head";
 
 const Invite = () => {
   const router = useRouter();
@@ -26,10 +27,7 @@ const Invite = () => {
     }, names[names.length - 1].charAt(0).toLocaleUpperCase() + names[names.length - 1].slice(1));
   }
 
-  return (
-    // @ts-ignore
-    <Invitation name={fmtd} many={many} />
-  );
+  return <Invitation name={fmtd} many={many} />;
 };
 
 const Invitation = ({ name, many }: { name: string; many: boolean }) => {
@@ -49,6 +47,13 @@ const Invitation = ({ name, many }: { name: string; many: boolean }) => {
       <div className="absolute h-full inset-0 bg-[#ff6239] z-30 overflow-y-scroll  overflow-x-hidden">
         <div className="flex justify-center">
           <div className="w-full max-w-xl p-4 py-12 text-white">
+            <Head>
+              <meta
+                property="og:image"
+                content={"https://meri.garden/images/ocean1.png"}
+              />
+            </Head>
+
             <h1 className="font-[Junicode] mb-8 text-6xl">Dear {name},</h1>
 
             <div className="relative w-full h-64 -mb-28">
