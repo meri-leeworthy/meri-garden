@@ -6,8 +6,7 @@ import { useEffect, useRef } from "react";
 import meriPic from "public/images/meri.jpg";
 
 const Home: NextPage = () => {
-  const viewportGrid = useRef<HTMLDivElement>(null);
-
+	//find viewport height despite transparent/changing  url bars on phones
   useEffect(() => {
     if (!window || !document) return;
     let vh = window.innerHeight * 0.01;
@@ -60,7 +59,7 @@ const Home: NextPage = () => {
               <Link href="https://github.com/meri-leeworthy">
                 <a className="text-pink-700 dark:text-orange-300">Github</a>
               </Link>{" "}
-              • Swipe right for more about me.
+              • Swipe right for more about me
             </p>
           </div>
           <span>&rarr;</span>
