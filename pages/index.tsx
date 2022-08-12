@@ -6,8 +6,7 @@ import { useEffect, useRef } from "react";
 import meriPic from "public/images/meri.jpg";
 
 const Home: NextPage = () => {
-  const viewportGrid = useRef<HTMLDivElement>(null);
-
+	//find viewport height despite transparent/changing  url bars on phones
   useEffect(() => {
     if (!window || !document) return;
     let vh = window.innerHeight * 0.01;
@@ -30,7 +29,7 @@ const Home: NextPage = () => {
           content="viewport-fit=auto, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
       </Head>
-      <main className="swipe-container" ref={viewportGrid}>
+      <main className="swipe-container">
         <section className="swipe-card-fixed">
           <div className="absolute -mt-36 sm:mt-0 sm:relative -z-10">
             <div className="aspect-[3/4] w-40 md:w-60 2xl:w-96 relative">
@@ -60,7 +59,7 @@ const Home: NextPage = () => {
               <Link href="https://github.com/meri-leeworthy">
                 <a className="text-pink-700 dark:text-orange-300">Github</a>
               </Link>{" "}
-              • Swipe right for more about me.
+              • Swipe right for more about me
             </p>
           </div>
           <span>&rarr;</span>
