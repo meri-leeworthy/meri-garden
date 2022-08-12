@@ -15,7 +15,7 @@ const Invite = () => {
 	const messages = {
 		ocean: "You are the birthday baby. Of course you are invited!"
 	}
-	//@tsignore
+	// @ts-ignore
 	return <Invitation name={stname} message={messages[stname?.toLowerCase()] || ""} />
 }
 
