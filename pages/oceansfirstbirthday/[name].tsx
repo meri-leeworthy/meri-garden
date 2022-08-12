@@ -11,10 +11,11 @@ import {useState, useEffect} from "react";
 const Invite = () => {
 	const router = useRouter();
 	const {name} = router.query;
+	const stname = name as string;
 	const messages = {
 		ocean: "You are the birthday baby. Of course you are invited!"
 	}
-	return <Invitation name={name} message={messages[name?.toLowerCase()] || ""} />
+	return <Invitation name={stname} message={messages[stname?.toLowerCase()] || ""} />
 }
 
 const Invitation = ({name, message}: {name: string, message: string}) => {
