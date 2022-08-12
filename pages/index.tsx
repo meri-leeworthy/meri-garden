@@ -29,7 +29,7 @@ const Home: NextPage = () => {
           content="viewport-fit=auto, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
       </Head>
-      <main className="swipe-container" ref={viewportGrid}>
+      <main className="swipe-container">
         <section className="swipe-card-fixed">
           <div className="absolute -mt-36 sm:mt-0 sm:relative -z-10">
             <div className="aspect-[3/4] w-40 md:w-60 2xl:w-96 relative">
