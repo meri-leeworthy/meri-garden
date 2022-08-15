@@ -8,6 +8,7 @@ import matter from "gray-matter";
 import { useEffect } from "react";
 import Image from "next/image";
 import { Footer } from "components/Footer";
+import BackButton from "components/BackButton";
 
 export interface Post {
   content?: string;
@@ -93,13 +94,9 @@ const Blog: NextPage<Props> = ({ posts }) => {
         <meta name="description" content="Meri Leeworthy as writer." />
       </Head>
 
-      <header className="flex items-center w-screen p-20 border-b-2 border-dashed h-[80vh] shrink-0 border-stone-500 dark:border-stone-200">
-        <Link href="/">
-          <a className="text-4xl absolute p-4 border-2 border-transparent rounded-[100%] hover:border-black dark:hover:border-stone-200 top-12 left-12">
-            &larr; back
-          </a>
-        </Link>
-        <h1 className="text-8xl xl:text-[9rem] 2xl:text-[12rem] font-serif underline decoration-pink-300 underline-offset-8">
+      <header className="flex items-center w-screen p-10 lg:p-20 border-b-2 border-dashed h-[80vh] shrink-0 border-stone-500 dark:border-stone-200">
+        <BackButton />
+        <h1 className="text-7xl xl:text-[9rem] 2xl:text-[12rem] font-serif underline decoration-pink-300 underline-offset-8">
           projects
         </h1>
       </header>

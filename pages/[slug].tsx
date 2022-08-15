@@ -10,6 +10,7 @@ import { readFileSync } from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { Post, getDate } from "./blog";
+import BackButton from "components/BackButton";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -44,10 +45,21 @@ const Blog: NextPage<Props> = ({ post }: Props) => {
         <meta name="description" content="Meri Leeworthy as writer." />
       </Head>
       <header className="px-2 mt-20 space-y-2">
-        <h1 className="max-w-4xl font-mono text-3xl xl:text-6xl">
-          {post.data.title}
+        <BackButton />
+        <h1 className="max-w-4xl pt-20 pb-12 font-serif text-3xl xl:text-6xl">
+          {post.data.title}{" "}
+          <time className="px-4 py-1 relative bottom-2  text-xl rounded-[100%] bg-green-300 dark:bg-blue-600 font-mono">
+            {getDate(post.data.publishDate)}
+          </time>
         </h1>
-        <time>{getDate(post.data.publishDate)}</time>
+
+        <div className="relative w-full aspect-video">
+          <Image
+            alt={post.data.alt}
+            src={`/images/${post.data.image}`}
+            layout="fill"
+          />
+        </div>
       </header>
       <main className="p-12 xl:w-1/2">
         <article className="prose lg:prose-xl document dark:prose-invert">

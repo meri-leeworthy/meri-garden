@@ -206,7 +206,7 @@
     }
 
     nav {
-      @apply mx-2 mt-4;
+      @apply hidden sm:block mx-2 mt-4;
     }
 
     a {
@@ -402,11 +402,15 @@
     @apply absolute font-serif bottom-5 right-5 text-7xl lg:text-8xl xl:text-9xl;
   }
 
+  code {
+    @apply bg-stone-200 dark:bg-stone-900 rounded;
+  }
+
   .projects {
     @apply flex flex-col items-start w-screen h-screen;
 
     section {
-      @apply w-screen p-20 border-b-2 border-dashed border-stone-500 dark:border-stone-200;
+      @apply w-screen p-10 lg:p-20 border-b-2 border-dashed border-stone-500 dark:border-stone-200;
     }
 
     h2 {

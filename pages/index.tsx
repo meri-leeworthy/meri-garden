@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 import meriPic from "public/images/meri.jpg";
 
 const Home: NextPage = () => {
-	//find viewport height despite transparent/changing  url bars on phones
+  //find viewport height despite transparent/changing  url bars on phones
   useEffect(() => {
     if (!window || !document) return;
     let vh = window.innerHeight * 0.01;
@@ -19,8 +19,14 @@ const Home: NextPage = () => {
     });
   });
 
+  const viewport = useRef<HTMLDivElement>(null);
+
+  // const scrollToRight = () => {
+  //   viewport.
+  // }
+
   return (
-    <div className="viewport-container">
+    <div className="viewport-container" ref={viewport}>
       <Head>
         <title>meri.garden</title>
         <meta name="description" content="Meri Leeworthy, internet edition." />

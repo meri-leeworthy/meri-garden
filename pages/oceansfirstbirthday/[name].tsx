@@ -43,7 +43,7 @@ const Invitation = ({ name, many }: { name: string; many: boolean }) => {
     };
   }, []);
   return (
-    <div className="w-screen h-full min-h-screen">
+    <div className="w-screen h-full min-h-screen overflow-clip">
       <div className="absolute h-full inset-0 bg-[#ff6239] z-30 overflow-y-scroll  overflow-x-hidden">
         <div className="flex justify-center">
           <div className="w-full max-w-xl p-4 py-12 text-white">
