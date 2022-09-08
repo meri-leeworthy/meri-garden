@@ -79,9 +79,14 @@ const Invitation = ({ name, many }: { name: string; many: boolean }) => {
               <Image alt="1st birthday party" layout="fill" src={oceanH2} />
             </div>
 
+
+            <p className="my-4 font-[Junicode] text-4xl">
+              Postponed!!
+              </p>
+
             <p className="my-4 font-[Junicode] text-4xl">
               Please join us for a big party at Edinburgh Gardens Community Room
-              (near the oval) on the 10th of September at 1:30pm
+              (near the oval) <em>now on the 1st of October</em> at 1:30pm
             </p>
 
             <p className="my-4 font-[Junicode] text-4xl">
