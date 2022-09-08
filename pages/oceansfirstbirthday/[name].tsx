@@ -52,6 +52,7 @@ const Invitation = ({ name, many }: { name: string; many: boolean }) => {
                 property="og:image"
                 content={"https://meri.garden/images/ocean1.png"}
               />
+              <title>POSTPONED! Ocean's Birthday</title>
             </Head>
 
             <h1 className="font-[Junicode] mb-8 text-6xl">Dear {name},</h1>
