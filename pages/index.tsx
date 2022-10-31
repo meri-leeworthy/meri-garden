@@ -21,8 +21,7 @@ const Home: NextPage = () => {
 
   const viewport = useRef<HTMLDivElement>(null);
 
-  // const scrollToRight = () => {
-  //   viewport.
+  // const scrollToRight = () => { //   viewport.
   // }
 
   return (
