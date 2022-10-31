@@ -5,6 +5,130 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import meriPic from "public/images/meri.jpg";
 
+const Styles = () => <style jsx>{`
+    .viewport-container {
+    /* @apply border-4 border-green-400; */
+    height: calc(var(--vh, 1vh) * 100);
+    max-height: calc(var(--vh, 1vh) * 100);
+  }
+
+  .swipe-container {
+    @apply flex w-screen h-full min-w-full overflow-x-scroll overflow-y-hidden snap-x snap-mandatory scroll-smooth;
+  }
+
+  .swipe-card-fixed {
+    @apply relative flex items-center w-screen h-full min-w-full px-8 side-safe-insets 2xl:px-16 snap-start snap-always space-x-8 2xl:space-x-16;
+  }
+
+  .swipe-card {
+    @apply relative z-10 flex items-end w-screen h-full max-h-full min-w-full -mr-24 sm:mr-0 snap-start snap-always;
+    pointer-events: none;
+
+    h2 {
+      @apply absolute z-50 w-0 h-0 font-serif text-5xl italic text-left left-2 md:left-8 bottom-5 xl:text-6xl 2xl:text-8xl whitespace-nowrap md:text-6xl -rotate-90;
+    }
+
+    h3 {
+      @apply pb-2 text-xl font-bold tracking-widest text-center uppercase;
+    }
+
+    p {
+      @apply pb-4 text-lg md:text-2xl xl:text-3xl;
+    }
+
+    ul {
+      @apply text-xl md:text-2xl xl:text-3xl 2xl:text-5xl space-y-4 2xl:space-y-8 text-stone-700 dark:text-white;
+    }
+
+    a {
+      @apply underline underline-offset-4 hover:decoration-dashed;
+    }
+
+    .content {
+      @apply h-full max-h-full my-auto columns-1 md:columns-2 xl:columns-3 overflow-y-scroll md:overflow-y-visible pt-16 px-4 pl-[4rem] sm:pl-[5rem] md:pl-[8rem] lg:pl-[12rem] md:mr-8 gap-8 mt-8 mb-5 xl:w-[80rem];
+    }
+
+    .content-list {
+      @apply md:relative w-screen min-w-full h-full flex flex-col max-h-full my-auto mt-16 px-4 pl-[4rem] sm:pl-[5rem] md:pl-[8rem] lg:pl-[12rem] md:mr-8 gap-8 mb-5 xl:w-[80rem] z-10;
+    }
+  }
+
+  .swipe-card.overlap-card {
+    @apply sm:bg-transparent;
+  }
+
+  .text-bg-green {
+    /* @apply bg-green-300 dark:bg-green-600; */
+    background-image: linear-gradient(
+      to bottom,
+      transparent,
+      transparent 20%,
+      rgb(134 239 172 / 1) 17%,
+      rgb(134 239 172 / 1)
+    );
+    .dark & {
+      /* @apply bg-green-300 dark:bg-green-600; */
+      background-image: linear-gradient(
+        to bottom,
+        transparent,
+        transparent 20%,
+        rgb(22 163 74 / 1) 17%,
+        rgb(22 163 74 / 1)
+      );
+    }
+  }
+
+  .list-1 {
+    @apply relative p-6 sm:p-8 md:p-12 lg:p-16 2xl:p-24 top-16;
+    pointer-events: auto;
+    &::before {
+      @apply absolute inset-0 bg-green-300 -z-10 dark:bg-green-700;
+      content: "";
+      clip-path: polygon(0 30%, 40% 0%, 90% 30%, 60% 100%, 20% 100%);
+      rotate: 5deg;
+    }
+  }
+
+  .list-2 {
+    @apply relative z-50 p-6 sm:p-8 md:p-12 lg:p-16 2xl:p-24 bottom-8;
+    pointer-events: auto;
+    a {
+      @apply decoration-orange-400 dark:decoration-blue-800;
+    }
+
+    &::before {
+      @apply absolute inset-0 bg-orange-300 -z-10 dark:bg-blue-700;
+      content: "";
+      clip-path: polygon(
+        20% 100%,
+        0 40%,
+        20% 0%,
+        50% 0%,
+        100% 40%,
+        100% 50%,
+        60% 100%
+      );
+      rotate: -5deg;
+    }
+  }
+
+  .list-3 {
+    @apply relative p-8 text-center md:p-12 lg:p-16 2xl:p-24;
+    pointer-events: auto;
+
+    a {
+      @apply decoration-pink-400 dark:decoration-pink-800;
+    }
+
+    &::before {
+      @apply absolute inset-0 bg-pink-300 -z-10 dark:bg-pink-600;
+      content: "";
+      clip-path: polygon(0 30%, 40% 10%, 100% 30%, 90% 80%, 60% 100%, 20% 80%);
+      rotate: 5deg;
+    }
+  }
+`}</style>
+
 const Home: NextPage = () => {
   //find viewport height despite transparent/changing  url bars on phones
   useEffect(() => {
@@ -208,8 +332,10 @@ const Home: NextPage = () => {
         {/* <div className="pretty-background" /> */}
       </main>
       {/* <div className="inset-box"></div> */}
+      <Styles />
     </div>
   );
 };
+
 
 export default Home;
